@@ -1,0 +1,34 @@
+.root { -fx-font-family: "Segoe UI", "Inter", sans-serif; -fx-font-size: 13px; -fx-base: #161b22; -fx-background: #0d1117; -fx-control-inner-background: #161b22; -fx-text-fill: #e6edf3; }
+.label { -fx-text-fill: #e6edf3; }
+.header { -fx-background-color: #010409; -fx-border-color: #30363d; -fx-border-width: 0 0 1 0; }
+.app-title { -fx-font-size: 22px; -fx-font-weight: bold; }
+.badge { -fx-padding: 5 12 5 12; -fx-background-radius: 12; -fx-font-weight: bold; }
+.badge-ok { -fx-background-color: #12361f; -fx-text-fill: #3fb950; }
+.card { -fx-background-color: #161b22; -fx-border-color: #30363d; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 14; }
+.card-title { -fx-text-fill: #8b949e; -fx-font-size: 12px; }
+.card-value { -fx-font-size: 18px; -fx-font-weight: bold; }
+.card-sub { -fx-text-fill: #8b949e; }
+.kind-ok { -fx-text-fill: #3fb950; }
+.kind-warn { -fx-text-fill: #d29922; }
+.kind-bad { -fx-text-fill: #f85149; -fx-font-weight: bold; }
+.section, .field-label { -fx-font-weight: bold; -fx-text-fill: #c9d1d9; }
+.totals { -fx-font-size: 14px; }
+.table-view { -fx-background-color: #0d1117; }
+.table-view .column-header-background { -fx-background-color: #161b22; }
+.table-view .column-header .label { -fx-text-fill: #8b949e; -fx-font-weight: bold; }
+.table-row-cell { -fx-background-color: #0d1117; -fx-text-fill: #e6edf3; }
+.table-row-cell:odd { -fx-background-color: #11161d; }
+.table-cell { -fx-text-fill: #e6edf3; }
+.tab-pane .tab-header-area .tab-header-background { -fx-background-color: #010409; }
+.button { -fx-background-color: #238636; -fx-text-fill: white; -fx-background-radius: 6; -fx-padding: 6 16 6 16; }
+.button:hover { -fx-background-color: #2ea043; }
+.btn-deny { -fx-background-color: #da3633; }
+.btn-deny:hover { -fx-background-color: #f85149; }
+.btn-approve:disabled { -fx-opacity: 0.4; }
+.mono, .mono .text { -fx-font-family: "Consolas", "Cascadia Mono", monospace; }
+.dialog-root { -fx-background-color: #0d1117; }
+.dialog-head { -fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 8 12 8 12; -fx-background-radius: 6; }
+.risk-low { -fx-background-color: #12361f; -fx-text-fill: #3fb950; }
+.risk-medium { -fx-background-color: #3a2f0b; -fx-text-fill: #d29922; }
+.risk-high { -fx-background-color: #4a2208; -fx-text-fill: #f0883e; }
+.risk-critical { -fx-background-color: #4c1217; -fx-text-fill: #f85149; }

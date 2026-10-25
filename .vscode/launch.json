@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "ActionGate (dashboard)",
+      "request": "launch",
+      "mainClass": "com.actiongate.App",
+      "vmArgs": "--module-path ${env:PATH_TO_FX} --add-modules javafx.controls"
+    },
+    {
+      "type": "java",
+      "name": "ActionGate (headless)",
+      "request": "launch",
+      "mainClass": "com.actiongate.App",
+      "args": "--headless"
+    }
+  ]
+}

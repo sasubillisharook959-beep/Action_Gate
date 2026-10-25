@@ -1,0 +1,5 @@
+package com.actiongate.authentication;
+
+public enum Availability {
+    AVAILABLE, DEVICE_NOT_PRESENT, NOT_CONFIGURED_FOR_USER, DISABLED_BY_POLICY, DEVICE_BUSY, UNSUPPORTED_PLATFORM, UNKNOWN
+}
