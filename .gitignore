@@ -6,3 +6,21 @@ target/
 ipc.json
 **/ipc.json
 *.log
+# Node.js
+node_modules/
+
+# Temporary test files
+actiongate-hook-test.txt
+hook-error.txt
+CopilotAdapter.java.backup
+
+# Java build
+target/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log
