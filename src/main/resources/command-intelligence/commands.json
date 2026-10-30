@@ -1,0 +1,3029 @@
+[
+  {
+    "id": "CMD001",
+    "command": "Remove-Item",
+    "aliases": ["rm", "del", "erase", "ri", "rmdir", "rd"],
+    "category": "File Management",
+    "description": "Deletes specified files or directories.",
+    "impact": "May remove important project files or user data.",
+    "riskReason": "The command performs a destructive file operation.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD002",
+    "command": "Get-Process",
+    "aliases": ["ps"],
+    "category": "System Information",
+    "description": "Displays currently running processes on the computer.",
+    "impact": "Provides information about active applications.",
+    "riskReason": "The command reads process information without modifying processes.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD003",
+    "command": "Stop-Process",
+    "aliases": [],
+    "category": "Process Management",
+    "description": "Terminates a running process.",
+    "impact": "May interrupt applications and running tasks.",
+    "riskReason": "Terminating important processes can disrupt system operations.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD004",
+    "command": "npm install",
+    "aliases": [],
+    "category": "Package Management",
+    "description": "Installs dependencies required by a Node.js project.",
+    "impact": "Modifies dependency files and may execute package installation scripts.",
+    "riskReason": "Third-party packages and installation scripts can introduce security risks.",
+    "suggestedRisk": "MEDIUM",
+    "source": "npm Documentation"
+  },
+  {
+    "id": "CMD005",
+    "command": "git reset --hard",
+    "aliases": [],
+    "category": "Version Control",
+    "description": "Resets tracked files and the current branch to a specified commit.",
+    "impact": "Discards uncommitted changes to tracked files.",
+    "riskReason": "Can destroy uncommitted project work.",
+    "suggestedRisk": "HIGH",
+    "source": "Git Documentation"
+  },
+  {
+    "id": "CMD006",
+    "command": "Format-Volume",
+    "aliases": [],
+    "category": "Disk Management",
+    "description": "Formats a selected storage volume.",
+    "impact": "Can destroy existing data on the selected volume.",
+    "riskReason": "Formatting is a destructive storage operation.",
+    "suggestedRisk": "CRITICAL",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD007",
+    "command": "Invoke-WebRequest",
+    "aliases": ["iwr"],
+    "category": "Network",
+    "description": "Sends HTTP or HTTPS requests and retrieves content from remote servers.",
+    "impact": "Can download files and communicate with external websites.",
+    "riskReason": "Downloaded content may be untrusted.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD008",
+    "command": "icacls",
+    "aliases": [],
+    "category": "Security",
+    "description": "Displays or modifies file and directory access permissions.",
+    "impact": "Can change which users or groups can access files.",
+    "riskReason": "Incorrect permission changes can expose sensitive files.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD009",
+    "command": "taskkill",
+    "aliases": [],
+    "category": "Process Management",
+    "description": "Terminates a running process using its name or process ID.",
+    "impact": "Can interrupt applications and running tasks.",
+    "riskReason": "Forced termination can cause data loss or service interruption.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD010",
+    "command": "git clean",
+    "aliases": [],
+    "category": "Version Control",
+    "description": "Removes untracked files from a Git working directory.",
+    "impact": "May delete files that have not been committed to Git.",
+    "riskReason": "Untracked project files may be permanently removed.",
+    "suggestedRisk": "HIGH",
+    "source": "Git Documentation"
+  },
+  {
+    "id": "CMD011",
+    "command": "Get-Service",
+    "aliases": [],
+    "category": "System Information",
+    "description": "Lists Windows services and their current status.",
+    "impact": "Reads service information.",
+    "riskReason": "The command performs a read-only service inspection.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD012",
+    "command": "git push",
+    "aliases": [],
+    "category": "Version Control",
+    "description": "Uploads local commits to a remote Git repository.",
+    "impact": "Publishes changes to a shared repository.",
+    "riskReason": "Changes become available in the remote repository.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Git Documentation"
+  },
+  {
+    "id": "CMD013",
+    "command": "Get-ComputerInfo",
+    "aliases": [],
+    "category": "System Information",
+    "description": "Displays detailed information about the computer, operating system and hardware.",
+    "impact": "Reveals system configuration details.",
+    "riskReason": "Performs read-only system information collection.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD014",
+    "command": "Get-Date",
+    "aliases": ["date"],
+    "category": "System Information",
+    "description": "Displays the current system date and time.",
+    "impact": "Reads system clock information.",
+    "riskReason": "Does not modify system settings.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD015",
+    "command": "Get-ChildItem",
+    "aliases": ["ls", "dir", "gci"],
+    "category": "File Management",
+    "description": "Lists files and directories in a specified location.",
+    "impact": "Reads directory contents.",
+    "riskReason": "Normally performs a read-only directory listing.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD016",
+    "command": "New-Item",
+    "aliases": ["ni", "mkdir", "md"],
+    "category": "File Management",
+    "description": "Creates a new file, directory or other supported item.",
+    "impact": "Creates new filesystem objects.",
+    "riskReason": "Modifies the filesystem by creating items.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD017",
+    "command": "Set-Content",
+    "aliases": [],
+    "category": "File Management",
+    "description": "Writes content to a file, replacing its existing contents by default.",
+    "impact": "Can overwrite important file contents.",
+    "riskReason": "May destroy existing file data.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD018",
+    "command": "Add-Content",
+    "aliases": ["ac"],
+    "category": "File Management",
+    "description": "Appends additional content to an existing file.",
+    "impact": "Modifies existing file contents.",
+    "riskReason": "Can change configuration or project files.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD019",
+    "command": "Clear-Content",
+    "aliases": [],
+    "category": "File Management",
+    "description": "Removes the contents of a file without deleting the file itself.",
+    "impact": "Erases existing file data.",
+    "riskReason": "Can destroy important information stored in files.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD020",
+    "command": "Rename-Item",
+    "aliases": ["ren", "rename", "rni"],
+    "category": "File Management",
+    "description": "Changes the name of a file or directory.",
+    "impact": "Changes filesystem names and paths.",
+    "riskReason": "May affect scripts and applications that depend on the original path.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD021",
+    "command": "Compress-Archive",
+    "aliases": [],
+    "category": "File Management",
+    "description": "Compresses files and directories into a ZIP archive.",
+    "impact": "Creates compressed copies of selected files.",
+    "riskReason": "Normally creates an archive without deleting original files.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD022",
+    "command": "Expand-Archive",
+    "aliases": [],
+    "category": "File Management",
+    "description": "Extracts files from a ZIP archive.",
+    "impact": "Creates files and directories in the destination location.",
+    "riskReason": "Extracted files may overwrite existing files depending on options.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD023",
+    "command": "Restart-Computer",
+    "aliases": [],
+    "category": "System Management",
+    "description": "Restarts the local or specified remote computer.",
+    "impact": "Interrupts active applications and system operations.",
+    "riskReason": "Causes system downtime and may interrupt unsaved work.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD024",
+    "command": "Stop-Service",
+    "aliases": [],
+    "category": "System Management",
+    "description": "Stops a running Windows service.",
+    "impact": "May interrupt applications that depend on the service.",
+    "riskReason": "Stopping important services can disrupt system functionality.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD025",
+    "command": "Start-Service",
+    "aliases": [],
+    "category": "System Management",
+    "description": "Starts a stopped Windows service.",
+    "impact": "Changes the operational state of a system service.",
+    "riskReason": "Can initiate services that affect system behaviour.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD026",
+    "command": "Set-Service",
+    "aliases": [],
+    "category": "System Management",
+    "description": "Changes the configuration or properties of a Windows service.",
+    "impact": "Can modify service startup settings and operational state.",
+    "riskReason": "Incorrect service configuration may affect system security or availability.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD027",
+    "command": "Clear-EventLog",
+    "aliases": [],
+    "category": "System Management",
+    "description": "Clears entries from a specified Windows event log.",
+    "impact": "Removes historical system and application event records.",
+    "riskReason": "Deleting logs can remove important diagnostic and security evidence.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD028",
+    "command": "Get-WinEvent",
+    "aliases": [],
+    "category": "System Information",
+    "description": "Retrieves events from Windows event logs.",
+    "impact": "Reads system and application activity records.",
+    "riskReason": "Normally performs read-only event log inspection.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD029",
+    "command": "Set-ExecutionPolicy",
+    "aliases": [],
+    "category": "Security",
+    "description": "Changes the rules governing PowerShell script execution.",
+    "impact": "May weaken restrictions on script execution.",
+    "riskReason": "Changing execution policy can increase exposure to untrusted scripts.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD030",
+    "command": "Get-NetTCPConnection",
+    "aliases": [],
+    "category": "Network",
+    "description": "Displays active TCP network connections on the computer.",
+    "impact": "Reveals local and remote network connection information.",
+    "riskReason": "Performs read-only network inspection.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD031",
+    "command": "Test-NetConnection",
+    "aliases": [],
+    "category": "Network",
+    "description": "Tests network connectivity to a remote computer or service.",
+    "impact": "Sends network probes to the specified destination.",
+    "riskReason": "Normally performs a basic network connectivity test.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD032",
+    "command": "Resolve-DnsName",
+    "aliases": [],
+    "category": "Network",
+    "description": "Queries DNS servers to resolve domain names into network records.",
+    "impact": "Reveals DNS information about specified domains.",
+    "riskReason": "Normally performs read-only DNS queries.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD033",
+    "command": "New-NetFirewallRule",
+    "aliases": [],
+    "category": "Security",
+    "description": "Creates a new Windows Firewall rule.",
+    "impact": "Changes network traffic filtering behaviour.",
+    "riskReason": "Incorrect firewall rules may expose services or block legitimate connections.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD034",
+    "command": "Remove-NetFirewallRule",
+    "aliases": [],
+    "category": "Security",
+    "description": "Removes an existing Windows Firewall rule.",
+    "impact": "Changes network protection settings.",
+    "riskReason": "Removing protective firewall rules may expose the system.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD035",
+    "command": "Get-LocalUser",
+    "aliases": [],
+    "category": "User Management",
+    "description": "Lists local user accounts configured on the computer.",
+    "impact": "Reveals local account information.",
+    "riskReason": "Performs read-only account inspection.",
+    "suggestedRisk": "LOW",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD036",
+    "command": "New-LocalUser",
+    "aliases": [],
+    "category": "User Management",
+    "description": "Creates a new local Windows user account.",
+    "impact": "Adds another account to the computer.",
+    "riskReason": "Creating accounts can change the system's access structure.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD037",
+    "command": "Remove-LocalUser",
+    "aliases": [],
+    "category": "User Management",
+    "description": "Deletes a local Windows user account.",
+    "impact": "Removes an account and changes system access.",
+    "riskReason": "May remove access needed by a legitimate user or application.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD038",
+    "command": "shutdown",
+    "aliases": [],
+    "category": "System Management",
+    "description": "Shuts down or restarts a Windows computer.",
+    "impact": "Interrupts active applications and system operations.",
+    "riskReason": "Can cause unexpected system downtime.",
+    "suggestedRisk": "HIGH",
+    "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD039",
+    "command": "sfc /scannow",
+    "aliases": ["sfc"],
+    "category": "System Maintenance",
+    "description": "Scans protected Windows system files and repairs detected integrity problems.",
+    "impact": "May modify damaged or corrupted system files during repair.",
+    "riskReason": "Performs system integrity checks and potential repairs.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD040",
+    "command": "DISM",
+    "aliases": [],
+    "category": "System Maintenance",
+    "description": "Manages and repairs Windows images and component stores.",
+    "impact": "Can modify Windows system image components depending on the options used.",
+    "riskReason": "Some DISM operations change important operating system components.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD041",
+    "command": "git status",
+    "aliases": [],
+    "category": "Version Control",
+    "description": "Displays the current Git repository state and modified files.",
+    "impact": "Reads repository status information.",
+    "riskReason": "Performs a read-only repository inspection.",
+    "suggestedRisk": "LOW",
+    "source": "Git Documentation"
+  },
+  {
+    "id": "CMD042",
+    "command": "git add",
+    "aliases": [],
+    "category": "Version Control",
+    "description": "Stages selected changes for the next Git commit.",
+    "impact": "Changes the Git staging area.",
+    "riskReason": "Prepares files for inclusion in a commit but does not publish them.",
+    "suggestedRisk": "LOW",
+    "source": "Git Documentation"
+  },
+  {
+    "id": "CMD043",
+    "command": "git commit",
+    "aliases": [],
+    "category": "Version Control",
+    "description": "Records staged changes as a new commit in the local repository.",
+    "impact": "Creates a new repository history entry.",
+    "riskReason": "Changes local repository history but does not normally publish it.",
+    "suggestedRisk": "LOW",
+    "source": "Git Documentation"
+  },
+  {
+    "id": "CMD044",
+    "command": "git pull",
+    "aliases": [],
+    "category": "Version Control",
+    "description": "Fetches remote changes and integrates them into the current local branch.",
+    "impact": "May modify local project files and repository history.",
+    "riskReason": "Remote changes can affect the local working project.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Git Documentation"
+  },
+  {
+    "id": "CMD045",
+    "command": "git merge",
+    "aliases": [],
+    "category": "Version Control",
+    "description": "Combines changes from another branch into the current branch.",
+    "impact": "Modifies repository history and project files.",
+    "riskReason": "May introduce conflicts or unexpected code changes.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Git Documentation"
+  },
+  {
+    "id": "CMD046",
+    "command": "git checkout",
+    "aliases": [],
+    "category": "Version Control",
+    "description": "Switches branches or restores selected files depending on the arguments.",
+    "impact": "Can change the active branch or replace working files.",
+    "riskReason": "Some forms can overwrite local file changes.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Git Documentation"
+  },
+  {
+    "id": "CMD047",
+    "command": "git branch -D",
+    "aliases": [],
+    "category": "Version Control",
+    "description": "Forcefully deletes a local Git branch.",
+    "impact": "Removes a branch reference and may make unmerged work harder to recover.",
+    "riskReason": "Can discard access to unmerged branch history.",
+    "suggestedRisk": "HIGH",
+    "source": "Git Documentation"
+  },
+  {
+    "id": "CMD048",
+    "command": "npm run",
+    "aliases": [],
+    "category": "Package Management",
+    "description": "Executes a script defined in the project's package.json file.",
+    "impact": "Can execute arbitrary commands configured by the project.",
+    "riskReason": "The actual behaviour depends on the script being executed.",
+    "suggestedRisk": "MEDIUM",
+    "source": "npm Documentation"
+  },
+  {
+    "id": "CMD049",
+    "command": "npm audit",
+    "aliases": [],
+    "category": "Package Management",
+    "description": "Checks project dependencies for known security vulnerabilities.",
+    "impact": "Reads dependency information and contacts the configured registry.",
+    "riskReason": "Normally performs dependency security inspection.",
+    "suggestedRisk": "LOW",
+    "source": "npm Documentation"
+  },
+  {
+    "id": "CMD050",
+    "command": "npm audit fix",
+    "aliases": [],
+    "category": "Package Management",
+    "description": "Attempts to update vulnerable dependencies to compatible secure versions.",
+    "impact": "Modifies dependency versions and package lock files.",
+    "riskReason": "Dependency updates may introduce compatibility changes.",
+    "suggestedRisk": "MEDIUM",
+    "source": "npm Documentation"
+  },
+  {
+    "id": "CMD051",
+    "command": "npm uninstall",
+    "aliases": ["npm remove"],
+    "category": "Package Management",
+    "description": "Removes a package from a Node.js project.",
+    "impact": "Changes project dependencies and package files.",
+    "riskReason": "Removing dependencies may break applications that rely on them.",
+    "suggestedRisk": "MEDIUM",
+    "source": "npm Documentation"
+  },
+  {
+    "id": "CMD052",
+    "command": "pip install",
+    "aliases": ["pip3 install"],
+    "category": "Python Package Management",
+    "description": "Installs Python packages and their required dependencies.",
+    "impact": "Adds software packages to the Python environment and may execute installation code.",
+    "riskReason": "Third-party packages can contain vulnerable or malicious code.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Python Packaging Documentation"
+  },
+  {
+    "id": "CMD053",
+    "command": "pip uninstall",
+    "aliases": ["pip3 uninstall"],
+    "category": "Python Package Management",
+    "description": "Removes an installed Python package from the environment.",
+    "impact": "Changes the installed Python environment.",
+    "riskReason": "Removing dependencies may break applications.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Python Packaging Documentation"
+  },
+  {
+    "id": "CMD054",
+    "command": "python",
+    "aliases": ["python.exe", "python3", "py"],
+    "category": "Script Execution",
+    "description": "Starts the Python interpreter or executes a specified Python script.",
+    "impact": "Can execute arbitrary Python code and modify files or system resources.",
+    "riskReason": "The actual behaviour depends on the script or code being executed.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Python Documentation"
+  },
+  {
+    "id": "CMD055",
+    "command": "python -m http.server",
+    "aliases": [],
+    "category": "Network",
+    "description": "Starts a basic HTTP server that serves files from the selected directory.",
+    "impact": "Makes files accessible through a network connection depending on the listening interface and firewall.",
+    "riskReason": "May unintentionally expose local files to other devices.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Python Documentation"
+  },
+  {
+    "id": "CMD056",
+    "command": "mvn clean",
+    "aliases": [],
+    "category": "Build Management",
+    "description": "Removes generated build files from a Maven project.",
+    "impact": "Deletes generated files in the project's build output directory.",
+    "riskReason": "Removes build artifacts but normally preserves source code.",
+    "suggestedRisk": "LOW",
+    "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD057",
+    "command": "mvn package",
+    "aliases": [],
+    "category": "Build Management",
+    "description": "Compiles and packages a Maven project into its distributable artifact.",
+    "impact": "Creates build outputs and may execute configured build plugins.",
+    "riskReason": "Build plugins can execute additional project-defined operations.",
+    "suggestedRisk": "LOW",
+    "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD058",
+    "command": "mvn deploy",
+    "aliases": [],
+    "category": "Build Management",
+    "description": "Publishes a Maven project artifact to a configured remote repository.",
+    "impact": "Uploads project artifacts to an external repository.",
+    "riskReason": "Publishes software packages to a shared or remote location.",
+    "suggestedRisk": "HIGH",
+    "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD059",
+    "command": "docker run",
+    "aliases": [],
+    "category": "Container Management",
+    "description": "Creates and starts a container from a specified image.",
+    "impact": "Executes software inside a container with configured permissions and resource access.",
+    "riskReason": "Container privileges, mounted directories and network access can affect host security.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Docker Documentation"
+  },
+  {
+    "id": "CMD060",
+    "command": "docker rm",
+    "aliases": [],
+    "category": "Container Management",
+    "description": "Removes one or more stopped Docker containers.",
+    "impact": "Deletes container instances and their associated writable container data.",
+    "riskReason": "May remove data stored only inside the container.",
+    "suggestedRisk": "MEDIUM",
+    "source": "Docker Documentation"
+  },
+  {
+    "id": "CMD061",
+    "command": "docker system prune",
+    "aliases": [],
+    "category": "Container Management",
+    "description": "Removes unused Docker resources such as containers, networks and build cache.",
+    "impact": "Deletes unused container resources and may remove images or volumes when additional options are used.",
+    "riskReason": "Can remove resources required by development environments.",
+    "suggestedRisk": "HIGH",
+    "source": "Docker Documentation"
+  },
+  {
+    "id": "CMD062",
+    "command": "diskpart",
+    "aliases": [],
+    "category": "Disk Management",
+    "description": "Opens the Windows disk partition management utility.",
+    "impact": "Can create, delete, modify and format disk partitions.",
+    "riskReason": "Disk partition operations can cause permanent data loss.",
+    "suggestedRisk": "CRITICAL",
+    "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD063", "command": "rimraf", "aliases": [], "category": "File Management",
+    "description": "Removes the specified file or directory tree, commonly from development scripts.",
+    "impact": "Can permanently delete many project files when pointed at a broad directory.",
+    "riskReason": "Recursive deletion can remove data without a simple recovery path.",
+    "suggestedRisk": "HIGH", "source": "rimraf Documentation"
+  },
+  {
+    "id": "CMD064", "command": "unlink", "aliases": [], "category": "File Management",
+    "description": "Removes a single filesystem link or file name; exact behavior depends on the platform.",
+    "impact": "The named file or link may become unavailable.",
+    "riskReason": "Removing a file can cause data loss or break dependent software.",
+    "suggestedRisk": "MEDIUM", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD065", "command": "touch", "aliases": [], "category": "File Management",
+    "description": "Creates an empty file if needed or updates a file's timestamps.",
+    "impact": "Creates a filesystem item or changes metadata used by tools and build systems.",
+    "riskReason": "It changes filesystem state even though existing file contents are normally preserved.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD066", "command": "Out-File", "aliases": [], "category": "File Management",
+    "description": "Writes pipeline output to a file, replacing its contents by default.",
+    "impact": "May overwrite an existing file or create a new one.",
+    "riskReason": "Unexpected output redirection can destroy data or alter configuration.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD067", "command": "truncate", "aliases": [], "category": "File Management",
+    "description": "Changes a file to a specified size, often making it empty.",
+    "impact": "Can discard part or all of a file's contents.",
+    "riskReason": "Truncating important data may be irreversible without a backup.",
+    "suggestedRisk": "HIGH", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD068", "command": "Move-Item", "aliases": ["mv", "move", "mi"], "category": "File Management",
+    "description": "Moves a file or directory to another location; a destination name can also rename it.",
+    "impact": "Changes paths and may overwrite a destination depending on options.",
+    "riskReason": "Moving project or system files can disrupt programs that rely on their original locations.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD069", "command": "Copy-Item", "aliases": ["cp", "copy", "cpi"], "category": "File Management",
+    "description": "Copies files or directories to a destination while leaving the source in place.",
+    "impact": "Creates additional files and may overwrite destination files.",
+    "riskReason": "Copies can expose data or replace important destination content.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD070", "command": "xcopy", "aliases": [], "category": "File Management",
+    "description": "Copies files and directory trees using Windows command-line options.",
+    "impact": "Creates or replaces files in the destination tree.",
+    "riskReason": "A wrong source or destination can copy sensitive data or overwrite files.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD071", "command": "robocopy", "aliases": [], "category": "File Management",
+    "description": "Copies and synchronizes directory trees, with options that can mirror or remove destination files.",
+    "impact": "May create, replace, or delete files in large directory trees.",
+    "riskReason": "Mirror and purge options can remove destination data.",
+    "suggestedRisk": "HIGH", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD072", "command": "tee", "aliases": [], "category": "File Management",
+    "description": "Copies input to both the terminal and a file or another output destination.",
+    "impact": "Can create or overwrite a file while passing data onward.",
+    "riskReason": "Output written to a sensitive or important path may expose or replace data.",
+    "suggestedRisk": "MEDIUM", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD073", "command": "install", "aliases": [], "category": "File Management",
+    "description": "On Unix-like systems, copies files into a destination and may set permissions; other tools use the same name.",
+    "impact": "Creates or replaces destination files and may change their permissions.",
+    "riskReason": "The executable and options determine whether files or software are changed.",
+    "suggestedRisk": "MEDIUM", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD074", "command": "ln", "aliases": [], "category": "File Management",
+    "description": "Creates a hard link or symbolic link between filesystem names.",
+    "impact": "Changes how paths refer to files and can expose a target through another location.",
+    "riskReason": "Links can redirect later file operations to unexpected data.",
+    "suggestedRisk": "MEDIUM", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD075", "command": "mklink", "aliases": [], "category": "File Management",
+    "description": "Creates a Windows symbolic link or junction that points to another filesystem location.",
+    "impact": "Changes path resolution and may make a target accessible from another location.",
+    "riskReason": "Links can redirect tools or users to unexpected files or directories.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD076", "command": "chmod", "aliases": [], "category": "File Permissions",
+    "description": "Changes access permissions on files or directories in Unix-like systems.",
+    "impact": "May grant or remove the ability to read, change, or execute files.",
+    "riskReason": "Overly broad permissions can expose data or allow unwanted code execution.",
+    "suggestedRisk": "MEDIUM", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD077", "command": "chown", "aliases": [], "category": "File Permissions",
+    "description": "Changes the owner or group associated with files and directories.",
+    "impact": "Changes which account controls or accesses the selected files.",
+    "riskReason": "Incorrect ownership can expose data or prevent legitimate services from operating.",
+    "suggestedRisk": "HIGH", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD078", "command": "chgrp", "aliases": [], "category": "File Permissions",
+    "description": "Changes the group ownership of files or directories.",
+    "impact": "Changes which group may receive access granted to the selected items.",
+    "riskReason": "Incorrect group ownership can expose files or disrupt access.",
+    "suggestedRisk": "MEDIUM", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD079", "command": "takeown", "aliases": [], "category": "File Permissions",
+    "description": "Changes ownership of files or directories to an administrator or specified account on Windows.",
+    "impact": "Changes who controls selected files and can affect later permission changes.",
+    "riskReason": "Ownership changes may grant access to protected system or user data.",
+    "suggestedRisk": "HIGH", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD080", "command": "attrib", "aliases": [], "category": "File Permissions",
+    "description": "Displays or changes Windows file attributes such as read-only, hidden, and system.",
+    "impact": "Changes how files are presented or whether they can be modified normally.",
+    "riskReason": "Changing attributes can hide files or interfere with normal application behavior.",
+    "suggestedRisk": "LOW", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD081", "command": "cacls", "aliases": [], "category": "File Permissions",
+    "description": "Displays or changes access-control lists on Windows files and directories.",
+    "impact": "Can grant or remove access for users and groups.",
+    "riskReason": "Incorrect permissions may expose sensitive files or block legitimate access.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD082", "command": "dd", "aliases": [], "category": "Storage",
+    "description": "Copies raw data between files, devices, or streams using specified input and output locations.",
+    "impact": "Can overwrite disks or files when the output target is selected incorrectly.",
+    "riskReason": "Raw writes can destroy large amounts of data without prompting.",
+    "suggestedRisk": "CRITICAL", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD083", "command": "rsync", "aliases": [], "category": "File Management",
+    "description": "Copies or synchronizes files between locations, locally or over a network.",
+    "impact": "May create, replace, or delete destination files depending on options.",
+    "riskReason": "Synchronization and deletion options can remove destination data or expose files remotely.",
+    "suggestedRisk": "MEDIUM", "source": "rsync Documentation"
+  },
+  {
+    "id": "CMD084", "command": "tar", "aliases": [], "category": "File Management",
+    "description": "Creates, lists, or extracts archive files; the selected options determine the operation.",
+    "impact": "May create archives or write many extracted files into a destination.",
+    "riskReason": "Extraction can overwrite files or place unexpected content on disk.",
+    "suggestedRisk": "MEDIUM", "source": "GNU tar Documentation"
+  },
+  {
+    "id": "CMD085", "command": "unzip", "aliases": [], "category": "File Management",
+    "description": "Lists or extracts files from a ZIP archive.",
+    "impact": "Extraction creates files and may replace existing destination content.",
+    "riskReason": "Archive contents and destination paths should be checked before extraction.",
+    "suggestedRisk": "MEDIUM", "source": "Info-ZIP Documentation"
+  },
+  {
+    "id": "CMD086", "command": "7z", "aliases": [], "category": "File Management",
+    "description": "Creates, lists, tests, or extracts archives using 7-Zip options.",
+    "impact": "May create archives or write many files to a destination.",
+    "riskReason": "Extraction can overwrite files and archives may contain untrusted content.",
+    "suggestedRisk": "MEDIUM", "source": "7-Zip Documentation"
+  },
+  {
+    "id": "CMD087", "command": "tree", "aliases": [], "category": "System Information",
+    "description": "Displays folders and their subfolders in a tree-like view.",
+    "impact": "Reveals directory names and project structure.",
+    "riskReason": "Normally read-only, but output may expose sensitive path names.",
+    "suggestedRisk": "LOW", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD088", "command": "Get-Location", "aliases": ["pwd", "gl"], "category": "System Information",
+    "description": "Displays the current working directory; pwd is also a common Unix command.",
+    "impact": "Reveals the current filesystem path.",
+    "riskReason": "Normally read-only, though path information can reveal environment details.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD089", "command": "Set-Location", "aliases": ["cd", "chdir", "sl"], "category": "System Information",
+    "description": "Changes the shell's current working directory to the specified path.",
+    "impact": "Changes where later relative file operations are performed.",
+    "riskReason": "A changed working directory can cause subsequent commands to target unexpected files.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD090", "command": "pushd", "aliases": [], "category": "System Information",
+    "description": "Saves the current directory and changes to another directory.",
+    "impact": "Changes the shell's working directory and affects relative paths.",
+    "riskReason": "Later commands may operate on a different directory than expected.",
+    "suggestedRisk": "LOW", "source": "Shell documentation"
+  },
+  {
+    "id": "CMD091", "command": "popd", "aliases": [], "category": "System Information",
+    "description": "Returns to a directory previously saved by pushd.",
+    "impact": "Changes the shell's working directory and affects relative paths.",
+    "riskReason": "Later commands may operate on a different directory than expected.",
+    "suggestedRisk": "LOW", "source": "Shell documentation"
+  },
+  {
+    "id": "CMD092", "command": "Get-Content", "aliases": ["gc", "cat", "type"], "category": "File Information",
+    "description": "Reads and displays file contents; cat and type have similar uses in other shells.",
+    "impact": "May reveal private data or secrets contained in the selected file.",
+    "riskReason": "Reading a file can expose sensitive information in command output or logs.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell and GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD093", "command": "head", "aliases": [], "category": "File Information",
+    "description": "Displays the first lines or bytes of input or a file.",
+    "impact": "May reveal sensitive information near the beginning of a file.",
+    "riskReason": "Output can expose secrets or private data.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD094", "command": "tail", "aliases": [], "category": "File Information",
+    "description": "Displays the last lines or bytes of input or a file, and can follow new output.",
+    "impact": "May reveal sensitive information or live log activity.",
+    "riskReason": "Logs can contain credentials, personal data, or operational details.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD095", "command": "less", "aliases": [], "category": "File Information",
+    "description": "Opens text for interactive viewing and searching without normally changing the file.",
+    "impact": "Displays the selected file's contents.",
+    "riskReason": "Sensitive file contents may be exposed to the user or terminal logs.",
+    "suggestedRisk": "LOW", "source": "less Documentation"
+  },
+  {
+    "id": "CMD096", "command": "more", "aliases": [], "category": "File Information",
+    "description": "Displays text one screen at a time for interactive reading.",
+    "impact": "Displays the selected file's contents.",
+    "riskReason": "Sensitive file contents may be exposed to the user or terminal logs.",
+    "suggestedRisk": "LOW", "source": "Microsoft Windows and GNU Documentation"
+  },
+  {
+    "id": "CMD097", "command": "grep", "aliases": [], "category": "File Information",
+    "description": "Searches input or files for lines matching a text or regular-expression pattern.",
+    "impact": "Can print matching secrets or private information from files.",
+    "riskReason": "Search output may expose sensitive data.",
+    "suggestedRisk": "LOW", "source": "GNU grep Documentation"
+  },
+  {
+    "id": "CMD098", "command": "egrep", "aliases": [], "category": "File Information",
+    "description": "Runs grep with extended regular-expression matching; modern systems generally use grep options instead.",
+    "impact": "Can print matching secrets or private information from files.",
+    "riskReason": "Search output may expose sensitive data.",
+    "suggestedRisk": "LOW", "source": "GNU grep Documentation"
+  },
+  {
+    "id": "CMD099", "command": "fgrep", "aliases": [], "category": "File Information",
+    "description": "Runs grep using fixed-string matching; modern systems generally use grep options instead.",
+    "impact": "Can print matching secrets or private information from files.",
+    "riskReason": "Search output may expose sensitive data.",
+    "suggestedRisk": "LOW", "source": "GNU grep Documentation"
+  },
+  {
+    "id": "CMD100", "command": "rg", "aliases": [], "category": "File Information",
+    "description": "Searches files and directories for matching text using ripgrep.",
+    "impact": "May print sensitive data found in the selected project or directory.",
+    "riskReason": "Search results can expose credentials or private content.",
+    "suggestedRisk": "LOW", "source": "ripgrep Documentation"
+  },
+  {
+    "id": "CMD101", "command": "findstr", "aliases": [], "category": "File Information",
+    "description": "Searches files for text patterns using the Windows command-line tool.",
+    "impact": "May print sensitive data from matching files.",
+    "riskReason": "Search results can expose credentials or private content.",
+    "suggestedRisk": "LOW", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD102", "command": "Select-String", "aliases": ["sls"], "category": "File Information",
+    "description": "Searches text and files for matching strings or regular expressions in PowerShell.",
+    "impact": "May print sensitive data from matching files.",
+    "riskReason": "Search results can expose credentials or private content.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD103", "command": "find", "aliases": [], "category": "File Information",
+    "description": "Searches directory trees for files that match specified names or properties.",
+    "impact": "Reveals filesystem paths and can select a broad set of files.",
+    "riskReason": "The command is normally read-only, but its results may expose sensitive path information.",
+    "suggestedRisk": "LOW", "source": "GNU findutils Documentation"
+  },
+  {
+    "id": "CMD104", "command": "stat", "aliases": [], "category": "File Information",
+    "description": "Displays metadata such as file size, ownership, and modification time.",
+    "impact": "Reveals filesystem metadata and path details.",
+    "riskReason": "Normally read-only, but metadata may expose sensitive environment information.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD105", "command": "file", "aliases": [], "category": "File Information",
+    "description": "Identifies a file's type by examining its contents and metadata.",
+    "impact": "Reads the selected file and reports its likely format.",
+    "riskReason": "Normally read-only; the file path and type may still be sensitive.",
+    "suggestedRisk": "LOW", "source": "file Documentation"
+  },
+  {
+    "id": "CMD106", "command": "Test-Path", "aliases": [], "category": "File Information",
+    "description": "Checks whether a file, directory, or other supported path exists.",
+    "impact": "Reveals whether a selected path or item is present.",
+    "riskReason": "Normally read-only, but path existence can reveal system or project details.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD107", "command": "Get-Item", "aliases": ["gi"], "category": "File Information",
+    "description": "Gets an item at a specified path, such as a file, directory, or registry item.",
+    "impact": "Reads item properties and may reveal path or configuration information.",
+    "riskReason": "Normally read-only, but output can contain sensitive metadata.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD108", "command": "whoami", "aliases": [], "category": "System Information",
+    "description": "Displays the current account identity and, depending on options, its groups or privileges.",
+    "impact": "Reveals account and permission context.",
+    "riskReason": "Normally read-only, but identity details can help characterize the environment.",
+    "suggestedRisk": "LOW", "source": "Microsoft Windows and GNU Documentation"
+  },
+  {
+    "id": "CMD109", "command": "hostname", "aliases": [], "category": "System Information",
+    "description": "Displays or sets the computer's network host name depending on platform and options.",
+    "impact": "May reveal the computer name; some variants can change it.",
+    "riskReason": "Check platform and arguments because changing a host name affects system identity.",
+    "suggestedRisk": "LOW", "source": "Microsoft Windows and GNU Documentation"
+  },
+  {
+    "id": "CMD110", "command": "tasklist", "aliases": [], "category": "System Information",
+    "description": "Lists processes currently running on Windows.",
+    "impact": "Reveals application and process names.",
+    "riskReason": "Normally read-only, but process details may expose user activity or software.",
+    "suggestedRisk": "LOW", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD111", "command": "Get-Command", "aliases": ["gcm"], "category": "System Information",
+    "description": "Finds commands available in the current PowerShell session and shows their command type.",
+    "impact": "Reveals installed tools and command resolution details.",
+    "riskReason": "Normally read-only, but output can disclose software and environment configuration.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD112", "command": "Get-Help", "aliases": ["help", "man"], "category": "System Information",
+    "description": "Displays usage information and documentation for commands.",
+    "impact": "Reads local or online help content.",
+    "riskReason": "Normally read-only; online help may contact external services.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD113", "command": "du", "aliases": [], "category": "System Information",
+    "description": "Reports disk space used by files or directories.",
+    "impact": "Reads directory metadata and may traverse many files.",
+    "riskReason": "Normally read-only, but broad scans can reveal file layout and consume resources.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD114", "command": "df", "aliases": [], "category": "System Information",
+    "description": "Reports free and used space on mounted filesystems.",
+    "impact": "Reveals storage capacity and mount information.",
+    "riskReason": "Normally read-only, but output can reveal system layout.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD115", "command": "uname", "aliases": [], "category": "System Information",
+    "description": "Displays system and operating-system identification information.",
+    "impact": "Reveals platform and kernel details.",
+    "riskReason": "Normally read-only, but system details can help characterize a machine.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD116", "command": "ver", "aliases": [], "category": "System Information",
+    "description": "Displays the Windows command interpreter or operating-system version.",
+    "impact": "Reveals platform version information.",
+    "riskReason": "Normally read-only, but version details can disclose system configuration.",
+    "suggestedRisk": "LOW", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD117", "command": "id", "aliases": [], "category": "System Information",
+    "description": "Displays the current user's numeric identity and group memberships on Unix-like systems.",
+    "impact": "Reveals account and group information.",
+    "riskReason": "Normally read-only, but permission context can be sensitive.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD118", "command": "where", "aliases": [], "category": "System Information",
+    "description": "Finds files matching a path or pattern on Windows; in PowerShell, where may be an alias for filtering objects.",
+    "impact": "Reveals filesystem paths or command output depending on shell context.",
+    "riskReason": "Meaning differs by shell, so the active shell and arguments matter.",
+    "suggestedRisk": "LOW", "source": "Microsoft Windows and PowerShell Documentation"
+  },
+  {
+    "id": "CMD119", "command": "which", "aliases": [], "category": "System Information",
+    "description": "Shows which executable a shell would find for a command name.",
+    "impact": "Reveals executable paths and command resolution.",
+    "riskReason": "Normally read-only, but paths can expose installed tools and environment configuration.",
+    "suggestedRisk": "LOW", "source": "which Documentation"
+  },
+  {
+    "id": "CMD120", "command": "wc", "aliases": [], "category": "File Information",
+    "description": "Counts lines, words, or bytes in input or files.",
+    "impact": "Reads selected input and reports aggregate counts.",
+    "riskReason": "Normally read-only, though it may traverse large or sensitive files.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD121", "command": "sort", "aliases": [], "category": "File Information",
+    "description": "Sorts input lines and writes the result to standard output or a selected destination.",
+    "impact": "May create or replace output files if redirection or output options are used.",
+    "riskReason": "Output redirection can overwrite data; inspect the full command.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD122", "command": "uniq", "aliases": [], "category": "File Information",
+    "description": "Filters or counts repeated adjacent lines in input.",
+    "impact": "Reads input and reports filtered results.",
+    "riskReason": "Normally read-only, but redirected output can change files.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD123", "command": "basename", "aliases": [], "category": "System Information",
+    "description": "Prints the final component of a path, usually a file or directory name.",
+    "impact": "Reveals a path's last component.",
+    "riskReason": "Normally read-only and informational.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD124", "command": "dirname", "aliases": [], "category": "System Information",
+    "description": "Prints the directory portion of a path.",
+    "impact": "Reveals directory path information.",
+    "riskReason": "Normally read-only and informational.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD125", "command": "realpath", "aliases": [], "category": "System Information",
+    "description": "Resolves a path to its absolute form and may follow symbolic links.",
+    "impact": "Reveals the actual filesystem location of a path.",
+    "riskReason": "Normally read-only, but resolved paths may disclose sensitive layout.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD126", "command": "readlink", "aliases": [], "category": "System Information",
+    "description": "Displays the target of a symbolic link or resolves a path, depending on options.",
+    "impact": "Reveals where a link points.",
+    "riskReason": "Normally read-only, but targets may disclose protected filesystem locations.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD127", "command": "uptime", "aliases": [], "category": "System Information",
+    "description": "Reports how long a system has been running and often its load information.",
+    "impact": "Reveals system availability and workload details.",
+    "riskReason": "Normally read-only and informational.",
+    "suggestedRisk": "LOW", "source": "System utilities documentation"
+  },
+  {
+    "id": "CMD128", "command": "free", "aliases": [], "category": "System Information",
+    "description": "Displays memory usage and available memory on Unix-like systems.",
+    "impact": "Reveals system resource information.",
+    "riskReason": "Normally read-only and informational.",
+    "suggestedRisk": "LOW", "source": "procps-ng Documentation"
+  },
+  {
+    "id": "CMD129", "command": "nproc", "aliases": [], "category": "System Information",
+    "description": "Reports the number of processing units available to the current process.",
+    "impact": "Reveals basic hardware or container resource information.",
+    "riskReason": "Normally read-only and informational.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD130", "command": "history", "aliases": [], "category": "System Information",
+    "description": "Displays commands saved in the current shell's history.",
+    "impact": "May reveal previous commands, paths, or accidentally recorded credentials.",
+    "riskReason": "Command history can contain sensitive operational information or secrets.",
+    "suggestedRisk": "LOW", "source": "Shell documentation"
+  },
+  {
+    "id": "CMD131", "command": "clear", "aliases": ["cls"], "category": "System Information",
+    "description": "Clears visible text from the terminal window without deleting command history or files.",
+    "impact": "Changes only the terminal display.",
+    "riskReason": "Normally cosmetic, though it can hide prior output from view.",
+    "suggestedRisk": "LOW", "source": "Shell documentation"
+  },
+  {
+    "id": "CMD132", "command": "kill", "aliases": [], "category": "Process Management",
+    "description": "Sends a signal to a process, usually identified by its process ID.",
+    "impact": "May stop or otherwise affect a running process.",
+    "riskReason": "Terminating or signaling an important process can interrupt work or services.",
+    "suggestedRisk": "MEDIUM", "source": "Linux man-pages Documentation"
+  },
+  {
+    "id": "CMD133", "command": "pkill", "aliases": [], "category": "Process Management",
+    "description": "Finds processes by name or attributes and sends them a signal.",
+    "impact": "Can affect one or multiple running processes.",
+    "riskReason": "A broad match may terminate processes needed by users or services.",
+    "suggestedRisk": "MEDIUM", "source": "Linux man-pages Documentation"
+  },
+  {
+    "id": "CMD134", "command": "killall", "aliases": [], "category": "Process Management",
+    "description": "Sends a signal to processes selected by program name; behavior varies between platforms.",
+    "impact": "May stop multiple applications or services at once.",
+    "riskReason": "Name-based selection can affect more processes than intended.",
+    "suggestedRisk": "MEDIUM", "source": "Linux man-pages Documentation"
+  },
+  {
+    "id": "CMD135", "command": "Start-Process", "aliases": ["saps"], "category": "Process Management",
+    "description": "Starts a process or application, optionally with specified arguments and execution settings.",
+    "impact": "Can launch programs that read files, change settings, or communicate over a network.",
+    "riskReason": "The effects depend on the executable and arguments being started.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD136", "command": "Stop-Computer", "aliases": [], "category": "System Management",
+    "description": "Shuts down a local or permitted remote computer.",
+    "impact": "Stops active applications and interrupts users or services.",
+    "riskReason": "Unexpected shutdown can cause lost unsaved work and downtime.",
+    "suggestedRisk": "HIGH", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD137", "command": "reboot", "aliases": [], "category": "System Management",
+    "description": "Restarts a Unix-like computer.",
+    "impact": "Ends running processes and interrupts active users and services.",
+    "riskReason": "An unexpected restart can cause data loss or downtime.",
+    "suggestedRisk": "HIGH", "source": "System utilities documentation"
+  },
+  {
+    "id": "CMD138", "command": "halt", "aliases": [], "category": "System Management",
+    "description": "Stops system activity and may power off or halt a Unix-like computer, depending on platform.",
+    "impact": "Interrupts processes and may make the computer unavailable.",
+    "riskReason": "Stopping a system unexpectedly can cause lost work and service downtime.",
+    "suggestedRisk": "HIGH", "source": "System utilities documentation"
+  },
+  {
+    "id": "CMD139", "command": "poweroff", "aliases": [], "category": "System Management",
+    "description": "Requests that a Unix-like computer shut down and power off.",
+    "impact": "Ends running processes and interrupts users and services.",
+    "riskReason": "Unexpected power-off can cause data loss and downtime.",
+    "suggestedRisk": "HIGH", "source": "System utilities documentation"
+  },
+  {
+    "id": "CMD140", "command": "sudo", "aliases": ["doas", "gsudo", "runas", "su", "pkexec", "psexec", "psexec64"], "category": "Privilege Management",
+    "description": "Runs a command under another account or with elevated permissions; options and behavior vary by platform.",
+    "impact": "The launched command may access or change protected files and system settings.",
+    "riskReason": "Elevated privileges increase the consequences of mistakes or untrusted programs.",
+    "suggestedRisk": "HIGH", "source": "Operating-system documentation"
+  },
+  {
+    "id": "CMD141", "command": "curl", "aliases": [], "category": "Network and Downloads",
+    "description": "Transfers data to or from a network URL and can save received content to a file.",
+    "impact": "Contacts remote systems and may write downloaded data locally.",
+    "riskReason": "Remote content and destinations should be checked before transfer or use.",
+    "suggestedRisk": "MEDIUM", "source": "curl Documentation"
+  },
+  {
+    "id": "CMD142", "command": "wget", "aliases": [], "category": "Network and Downloads",
+    "description": "Downloads content from network locations and can retrieve files recursively depending on options.",
+    "impact": "Contacts remote systems and writes downloaded files to disk.",
+    "riskReason": "Untrusted downloads or broad recursive retrieval can affect files and security.",
+    "suggestedRisk": "MEDIUM", "source": "GNU Wget Documentation"
+  },
+  {
+    "id": "CMD143", "command": "Invoke-RestMethod", "aliases": ["irm"], "category": "Network and Downloads",
+    "description": "Sends a web request and converts a response into PowerShell objects when possible.",
+    "impact": "Contacts external services and may return data consumed by later commands.",
+    "riskReason": "Remote responses may be untrusted, especially when piped into other operations.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD144", "command": "Start-BitsTransfer", "aliases": [], "category": "Network and Downloads",
+    "description": "Creates or manages background file transfers using the Windows Background Intelligent Transfer Service.",
+    "impact": "Can download or upload files in the background.",
+    "riskReason": "Transfers may expose data or place untrusted content on the computer.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD145", "command": "bitsadmin", "aliases": [], "category": "Network and Downloads",
+    "description": "Manages Background Intelligent Transfer Service jobs on Windows; it is a legacy utility.",
+    "impact": "Can schedule or manage background downloads and uploads.",
+    "riskReason": "Background transfers may expose data or retrieve untrusted files.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD146", "command": "aria2c", "aliases": [], "category": "Network and Downloads",
+    "description": "Downloads or uploads files using supported network protocols and multiple connections.",
+    "impact": "Contacts remote systems and may create or replace local files.",
+    "riskReason": "Remote content and output paths should be reviewed before transfer.",
+    "suggestedRisk": "MEDIUM", "source": "aria2 Documentation"
+  },
+  {
+    "id": "CMD147", "command": "fetch", "aliases": [], "category": "Network and Downloads",
+    "description": "Retrieves a resource from a network location on systems that provide this utility.",
+    "impact": "Contacts a remote service and may save received data.",
+    "riskReason": "The fetched content and destination may be untrusted or sensitive.",
+    "suggestedRisk": "MEDIUM", "source": "Operating-system fetch documentation"
+  },
+  {
+    "id": "CMD148", "command": "ssh", "aliases": [], "category": "Remote Access",
+    "description": "Connects to a remote computer using an encrypted Secure Shell session.",
+    "impact": "Can provide remote command access and transfer capabilities depending on options.",
+    "riskReason": "Remote access can change systems or expose credentials and data.",
+    "suggestedRisk": "MEDIUM", "source": "OpenSSH Documentation"
+  },
+  {
+    "id": "CMD149", "command": "scp", "aliases": [], "category": "Remote Access",
+    "description": "Copies files between a local computer and a remote computer over SSH.",
+    "impact": "Transfers local or remote files and may overwrite destination content.",
+    "riskReason": "The direction, destination, and sensitivity of transferred files matter.",
+    "suggestedRisk": "MEDIUM", "source": "OpenSSH Documentation"
+  },
+  {
+    "id": "CMD150", "command": "sftp", "aliases": [], "category": "Remote Access",
+    "description": "Opens an interactive or scripted file-transfer session over SSH.",
+    "impact": "Can read, upload, download, rename, or remove remote files.",
+    "riskReason": "Remote file changes or transfers may affect important data.",
+    "suggestedRisk": "MEDIUM", "source": "OpenSSH Documentation"
+  },
+  {
+    "id": "CMD151", "command": "ftp", "aliases": [], "category": "Remote Access",
+    "description": "Connects to an FTP server to transfer files; standard FTP does not encrypt credentials or data.",
+    "impact": "May expose transferred content and login information on the network.",
+    "riskReason": "Unencrypted transfers can disclose credentials and sensitive files.",
+    "suggestedRisk": "HIGH", "source": "Internet standards and FTP client documentation"
+  },
+  {
+    "id": "CMD152", "command": "telnet", "aliases": [], "category": "Remote Access",
+    "description": "Connects to a remote text-based service; traditional Telnet sends data without encryption.",
+    "impact": "May expose session data and credentials to network observers.",
+    "riskReason": "Unencrypted remote sessions are vulnerable to disclosure.",
+    "suggestedRisk": "HIGH", "source": "Microsoft Windows and Telnet documentation"
+  },
+  {
+    "id": "CMD153", "command": "nc", "aliases": ["ncat", "netcat"], "category": "Network",
+    "description": "Reads from or writes to network connections for diagnostics and data transfer.",
+    "impact": "Can communicate with remote hosts or listen for inbound connections.",
+    "riskReason": "Network listeners and transfers can expose services or move data.",
+    "suggestedRisk": "MEDIUM", "source": "Ncat and netcat Documentation"
+  },
+  {
+    "id": "CMD154", "command": "bash", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Starts the Bash shell or runs a supplied script or command string.",
+    "impact": "The supplied script can execute programs and change files or system state.",
+    "riskReason": "Actual behavior depends on the script, arguments, permissions, and environment.",
+    "suggestedRisk": "MEDIUM", "source": "GNU Bash Reference Manual"
+  },
+  {
+    "id": "CMD155", "command": "sh", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Starts a POSIX-style shell or runs a supplied script or command string.",
+    "impact": "The supplied script can execute programs and modify files or settings.",
+    "riskReason": "Actual behavior depends on the script and its execution context.",
+    "suggestedRisk": "MEDIUM", "source": "POSIX Shell Command Language"
+  },
+  {
+    "id": "CMD156", "command": "zsh", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Starts the Z shell or runs a supplied script or command string.",
+    "impact": "The supplied script can execute programs and change system or project data.",
+    "riskReason": "Actual behavior depends on the script, options, and environment.",
+    "suggestedRisk": "MEDIUM", "source": "Zsh Documentation"
+  },
+  {
+    "id": "CMD157", "command": "dash", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Starts a lightweight POSIX-compatible shell or runs a supplied script.",
+    "impact": "A script can execute programs and modify files or settings.",
+    "riskReason": "Actual behavior depends on the script and its execution context.",
+    "suggestedRisk": "MEDIUM", "source": "dash Documentation"
+  },
+  {
+    "id": "CMD158", "command": "ksh", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Starts the Korn shell or runs a supplied script or command string.",
+    "impact": "A script can execute programs and modify files or system state.",
+    "riskReason": "Actual behavior depends on the supplied script and permissions.",
+    "suggestedRisk": "MEDIUM", "source": "KornShell Documentation"
+  },
+  {
+    "id": "CMD159", "command": "fish", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Starts the Friendly Interactive Shell or runs supported scripts and commands.",
+    "impact": "Commands can execute programs and modify files or settings.",
+    "riskReason": "Actual behavior depends on the commands and execution context.",
+    "suggestedRisk": "MEDIUM", "source": "fish Documentation"
+  },
+  {
+    "id": "CMD160", "command": "csh", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Starts the C shell or runs a supplied script or command string.",
+    "impact": "A script can execute programs and change filesystem or system state.",
+    "riskReason": "Actual behavior depends on the script and permissions.",
+    "suggestedRisk": "MEDIUM", "source": "C shell documentation"
+  },
+  {
+    "id": "CMD161", "command": "tcsh", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Starts the TENEX C shell or runs a supplied script or command string.",
+    "impact": "A script can execute programs and change filesystem or system state.",
+    "riskReason": "Actual behavior depends on the script and permissions.",
+    "suggestedRisk": "MEDIUM", "source": "tcsh Documentation"
+  },
+  {
+    "id": "CMD162", "command": "PowerShell", "aliases": ["pwsh"], "category": "Shell and Interpreter",
+    "description": "Starts PowerShell or runs a supplied script or command string.",
+    "impact": "Scripts can execute programs and change files, services, accounts, or system settings.",
+    "riskReason": "Actual behavior depends on the script, arguments, and permissions.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD163", "command": "cmd", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Starts the Windows command processor or runs a batch file or command string.",
+    "impact": "Supplied commands can launch programs and change files or system settings.",
+    "riskReason": "Actual behavior depends on the supplied command sequence and permissions.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD164", "command": "node", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Runs JavaScript with the Node.js runtime or starts an interactive prompt.",
+    "impact": "Scripts can read or change files and communicate over the network.",
+    "riskReason": "Actual behavior depends on the script and its permissions.",
+    "suggestedRisk": "MEDIUM", "source": "Node.js Documentation"
+  },
+  {
+    "id": "CMD165", "command": "perl", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Runs Perl programs or evaluates supplied Perl code.",
+    "impact": "Code can read or modify files and start other programs.",
+    "riskReason": "Actual behavior depends on the supplied code and permissions.",
+    "suggestedRisk": "MEDIUM", "source": "Perl Documentation"
+  },
+  {
+    "id": "CMD166", "command": "ruby", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Runs Ruby programs or evaluates supplied Ruby code.",
+    "impact": "Code can access files, run programs, or communicate over a network.",
+    "riskReason": "Actual behavior depends on the supplied code and execution context.",
+    "suggestedRisk": "MEDIUM", "source": "Ruby Documentation"
+  },
+  {
+    "id": "CMD167", "command": "php", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Runs PHP scripts or evaluates supplied PHP code.",
+    "impact": "Code can read or modify files and contact external services.",
+    "riskReason": "Actual behavior depends on the supplied code and permissions.",
+    "suggestedRisk": "MEDIUM", "source": "PHP Documentation"
+  },
+  {
+    "id": "CMD168", "command": "lua", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Runs Lua scripts or evaluates supplied Lua code.",
+    "impact": "Scripts can change files or invoke capabilities exposed by the runtime.",
+    "riskReason": "Actual behavior depends on the script and runtime configuration.",
+    "suggestedRisk": "MEDIUM", "source": "Lua Documentation"
+  },
+  {
+    "id": "CMD169", "command": "deno", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Runs JavaScript or TypeScript with the Deno runtime.",
+    "impact": "Depending on permissions, code can access files, networks, and subprocesses.",
+    "riskReason": "The script and granted runtime permissions determine its effects.",
+    "suggestedRisk": "MEDIUM", "source": "Deno Documentation"
+  },
+  {
+    "id": "CMD170", "command": "wscript", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Runs Windows Script Host scripts using a graphical host.",
+    "impact": "Scripts may change files, settings, or launch other programs.",
+    "riskReason": "The script's content and permissions determine its effects.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Script Host Documentation"
+  },
+  {
+    "id": "CMD171", "command": "cscript", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Runs Windows Script Host scripts from the command line.",
+    "impact": "Scripts may change files, settings, or launch other programs.",
+    "riskReason": "The script's content and permissions determine its effects.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Script Host Documentation"
+  },
+  {
+    "id": "CMD172", "command": "mshta", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Opens or runs an HTML Application using the Windows HTML Application host.",
+    "impact": "The application may run script code and access local resources.",
+    "riskReason": "Behavior depends on the supplied application and its permissions.",
+    "suggestedRisk": "HIGH", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD173", "command": "osascript", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Runs AppleScript or JavaScript automation through macOS scripting support.",
+    "impact": "Scripts may control applications, access files, or change settings.",
+    "riskReason": "Actual behavior depends on the script and granted macOS permissions.",
+    "suggestedRisk": "MEDIUM", "source": "Apple macOS Documentation"
+  },
+  {
+    "id": "CMD174", "command": "Invoke-Expression", "aliases": ["iex"], "category": "Shell and Interpreter",
+    "description": "Evaluates a string as PowerShell code in the current session.",
+    "impact": "The string can run commands with the current user's permissions.",
+    "riskReason": "Dynamically evaluated text is difficult to inspect and may execute untrusted code.",
+    "suggestedRisk": "HIGH", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD175", "command": "eval", "aliases": [], "category": "Shell and Interpreter",
+    "description": "Evaluates supplied text as code or shell syntax depending on the language.",
+    "impact": "The text may execute programs or change files and settings.",
+    "riskReason": "Dynamic evaluation can execute content that static inspection cannot reliably determine.",
+    "suggestedRisk": "HIGH", "source": "Language and shell documentation"
+  },
+  {
+    "id": "CMD176", "command": "base64", "aliases": [], "category": "Data Encoding",
+    "description": "Encodes or decodes data using Base64; this is an encoding format, not encryption.",
+    "impact": "May reveal encoded content or write decoded data when combined with output options.",
+    "riskReason": "Encoded text can conceal data from casual inspection but does not make it safe.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD177", "command": "xxd", "aliases": [], "category": "Data Inspection",
+    "description": "Displays binary data as hexadecimal text or converts hexadecimal text back to bytes.",
+    "impact": "Reads files and can write converted data to an output file.",
+    "riskReason": "Output options may overwrite files, and encoded content can be difficult to inspect.",
+    "suggestedRisk": "LOW", "source": "vim Documentation"
+  },
+  {
+    "id": "CMD178", "command": "openssl", "aliases": [], "category": "Cryptography",
+    "description": "Provides cryptographic, certificate, and secure-connection utilities.",
+    "impact": "Can read or write keys and certificates or communicate with network services.",
+    "riskReason": "Private keys and cryptographic configuration are sensitive; effects depend on subcommands.",
+    "suggestedRisk": "MEDIUM", "source": "OpenSSL Documentation"
+  },
+  {
+    "id": "CMD179", "command": "certutil", "aliases": [], "category": "Cryptography",
+    "description": "Manages certificates and performs related data operations on Windows.",
+    "impact": "Can read or change certificate stores and process files or network data.",
+    "riskReason": "Certificate changes affect trust decisions; inspect the selected operation.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD180", "command": "ConvertFrom-Base64", "aliases": [], "category": "Data Encoding",
+    "description": "Converts a Base64-encoded string into its original byte data in PowerShell.",
+    "impact": "Decoded output may contain private data or executable content.",
+    "riskReason": "Decoding does not execute content by itself, but later use may have separate effects.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD181", "command": "git diff", "aliases": [], "category": "Version Control",
+    "description": "Shows differences between working files, staged changes, commits, or branches.",
+    "impact": "Reads repository content and displays changed lines.",
+    "riskReason": "Normally read-only, but output may expose secrets or uncommitted code.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD182", "command": "git log", "aliases": [], "category": "Version Control",
+    "description": "Displays commit history and related metadata for a repository.",
+    "impact": "Reveals commit messages, authors, dates, and history.",
+    "riskReason": "Normally read-only, though repository metadata can contain private information.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD183", "command": "git show", "aliases": [], "category": "Version Control",
+    "description": "Displays details about a commit, tag, or other Git object, often including a file diff.",
+    "impact": "Reads repository content and metadata.",
+    "riskReason": "Normally read-only, but output may reveal private code or history.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD184", "command": "git init", "aliases": [], "category": "Version Control",
+    "description": "Creates Git repository metadata in a directory or reinitializes an existing repository.",
+    "impact": "Creates or updates the local .git repository data.",
+    "riskReason": "Changes local repository state and may affect how files are tracked.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD185", "command": "git fetch", "aliases": [], "category": "Version Control",
+    "description": "Downloads remote references and objects without integrating them into the current working branch.",
+    "impact": "Updates local remote-tracking data and contacts a remote repository.",
+    "riskReason": "Changes local repository metadata and receives remote data, but normally leaves working files unchanged.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD186", "command": "git push --force", "aliases": [], "category": "Version Control",
+    "description": "Updates a remote branch while replacing its history with the local branch history.",
+    "impact": "Can remove commits from shared remote branch history and disrupt collaborators.",
+    "riskReason": "Force-pushing can overwrite published work and is difficult for others to recover from.",
+    "suggestedRisk": "HIGH", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD187", "command": "git reset", "aliases": [], "category": "Version Control",
+    "description": "Moves the current branch reference or changes the staging area; options determine whether files are changed.",
+    "impact": "Can unstage changes, move local history, or change working files.",
+    "riskReason": "Some reset modes discard local changes or make commits harder to find.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD188", "command": "git clean -n", "aliases": [], "category": "Version Control",
+    "description": "Previews which untracked files Git would remove without deleting them.",
+    "impact": "Reads repository status and lists candidate paths.",
+    "riskReason": "The preview itself is read-only; verify the paths before running a deleting variant.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD189", "command": "git branch", "aliases": [], "category": "Version Control",
+    "description": "Lists branches or creates, renames, or deletes a branch depending on its arguments.",
+    "impact": "May read or change local branch references.",
+    "riskReason": "Some forms change repository state or remove a branch containing unmerged work.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD190", "command": "git switch", "aliases": [], "category": "Version Control",
+    "description": "Changes the currently checked-out branch or creates a branch when requested.",
+    "impact": "Updates the active branch and working files.",
+    "riskReason": "Switching can be blocked by or affect uncommitted changes.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD191", "command": "git restore", "aliases": [], "category": "Version Control",
+    "description": "Restores selected files from a source such as the index or a commit.",
+    "impact": "Can replace working-file contents or change staged content.",
+    "riskReason": "Restoring from the wrong source may discard uncommitted work.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD192", "command": "git stash", "aliases": [], "category": "Version Control",
+    "description": "Saves uncommitted changes aside and can later reapply them.",
+    "impact": "Changes the working tree and creates or alters stash entries.",
+    "riskReason": "Stashed changes may be overlooked or conflict when reapplied.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD193", "command": "git rebase", "aliases": [], "category": "Version Control",
+    "description": "Replays commits onto a different base and rewrites local commit history.",
+    "impact": "Changes commit IDs and may modify files while resolving conflicts.",
+    "riskReason": "Rewriting shared history can disrupt collaborators or lose uncommitted work.",
+    "suggestedRisk": "HIGH", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD194", "command": "git cherry-pick", "aliases": [], "category": "Version Control",
+    "description": "Applies the changes from selected commits to the current branch as new commits.",
+    "impact": "Changes working files and local commit history.",
+    "riskReason": "May create conflicts or duplicate changes in project history.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD195", "command": "git revert", "aliases": [], "category": "Version Control",
+    "description": "Creates a new commit that reverses changes introduced by an earlier commit.",
+    "impact": "Changes project files and adds to local history.",
+    "riskReason": "The reversal may conflict with later work or alter important behavior.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD196", "command": "git clone", "aliases": [], "category": "Version Control",
+    "description": "Downloads a repository and creates a local working copy.",
+    "impact": "Creates files and repository metadata and contacts a remote host.",
+    "riskReason": "Remote content is untrusted until reviewed and may consume substantial disk space.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD197", "command": "git config", "aliases": [], "category": "Version Control",
+    "description": "Reads or changes Git configuration at local, user, or system scope.",
+    "impact": "May alter future Git behavior, identity, helpers, or credential settings.",
+    "riskReason": "Configuration changes can affect repository operations and credential handling.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD198", "command": "git tag", "aliases": [], "category": "Version Control",
+    "description": "Lists or creates, changes, or removes named references to Git objects.",
+    "impact": "May change local repository references or published release markers.",
+    "riskReason": "Tags can identify release versions and may be shared with remote repositories.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD199", "command": "git remote", "aliases": [], "category": "Version Control",
+    "description": "Lists or changes the remote repository locations and names stored in Git configuration.",
+    "impact": "May change where later fetch and push operations connect.",
+    "riskReason": "An incorrect or untrusted remote can redirect code transfers.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD200", "command": "git rm", "aliases": [], "category": "Version Control",
+    "description": "Removes files from the working tree and stages their removal in Git.",
+    "impact": "Deletes selected working files and changes the staging area.",
+    "riskReason": "Important files can be removed and later included in a commit.",
+    "suggestedRisk": "HIGH", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD201", "command": "git mv", "aliases": [], "category": "Version Control",
+    "description": "Moves or renames files and stages the change for Git.",
+    "impact": "Changes filesystem paths and the repository index.",
+    "riskReason": "Moving files may break references and modifies the staging area.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD202", "command": "git submodule", "aliases": [], "category": "Version Control",
+    "description": "Adds, initializes, updates, or manages repositories nested inside another Git repository.",
+    "impact": "May download external repositories and change nested project files.",
+    "riskReason": "Nested repositories introduce additional code and remote sources to review.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD203", "command": "git worktree", "aliases": [], "category": "Version Control",
+    "description": "Creates or manages additional working directories linked to one Git repository.",
+    "impact": "Creates or removes working directories and updates repository metadata.",
+    "riskReason": "Removal or path mistakes can make local work harder to access.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD204", "command": "git filter-branch", "aliases": [], "category": "Version Control",
+    "description": "Rewrites repository history by applying a filter to commits; Git recommends newer alternatives for many uses.",
+    "impact": "Can rewrite many commits and change object references across the repository.",
+    "riskReason": "History rewriting can disrupt collaborators and remove or alter repository data.",
+    "suggestedRisk": "HIGH", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD205", "command": "git filter-repo", "aliases": [], "category": "Version Control",
+    "description": "Rewrites repository history to filter or transform commits, files, or metadata.",
+    "impact": "Can replace large portions of local history and remove content.",
+    "riskReason": "History rewriting is destructive to shared references and may permanently remove data.",
+    "suggestedRisk": "HIGH", "source": "git-filter-repo Documentation"
+  },
+  {
+    "id": "CMD206", "command": "git reflog", "aliases": [], "category": "Version Control",
+    "description": "Displays local history of changes to branch and reference positions.",
+    "impact": "Reads local repository recovery information.",
+    "riskReason": "Normally read-only, but reflog output may reveal prior repository activity.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD207", "command": "git gc", "aliases": [], "category": "Version Control",
+    "description": "Optimizes local repository storage and may expire unreachable objects according to settings.",
+    "impact": "Repackages repository data and may remove unreachable objects.",
+    "riskReason": "Cleanup can reduce recovery options for commits not referenced elsewhere.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD208", "command": "git prune", "aliases": [], "category": "Version Control",
+    "description": "Removes unreachable Git objects from local repository storage.",
+    "impact": "Deletes objects that no longer appear reachable from repository references.",
+    "riskReason": "Unreachable commits or data may be permanently removed.",
+    "suggestedRisk": "HIGH", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD209", "command": "git ls-files", "aliases": [], "category": "Version Control",
+    "description": "Lists files tracked by the repository index.",
+    "impact": "Reveals tracked file names and paths.",
+    "riskReason": "Normally read-only, though output may disclose project structure.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD210", "command": "git blame", "aliases": [], "category": "Version Control",
+    "description": "Shows which commit and author last changed each line of a file.",
+    "impact": "Reveals repository history and contributor metadata.",
+    "riskReason": "Normally read-only, but output may include private project history.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD211", "command": "git rev-parse", "aliases": [], "category": "Version Control",
+    "description": "Resolves Git references and reports repository or object identifiers.",
+    "impact": "Reads repository metadata and path information.",
+    "riskReason": "Normally read-only and informational.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD212", "command": "git describe", "aliases": [], "category": "Version Control",
+    "description": "Creates a human-readable name for a commit using nearby tags and history.",
+    "impact": "Reads local commit and tag metadata.",
+    "riskReason": "Normally read-only and informational.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD213", "command": "git rev-list", "aliases": [], "category": "Version Control",
+    "description": "Lists commit identifiers reachable from selected references.",
+    "impact": "Reads repository history and metadata.",
+    "riskReason": "Normally read-only, though output may disclose repository structure.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD214", "command": "git ls-tree", "aliases": [], "category": "Version Control",
+    "description": "Lists files and tree objects recorded in a commit or other tree object.",
+    "impact": "Reveals repository paths and object metadata.",
+    "riskReason": "Normally read-only, though output may disclose private project structure.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD215", "command": "git cat-file", "aliases": [], "category": "Version Control",
+    "description": "Displays the type, size, or contents of a Git object.",
+    "impact": "May reveal file contents stored in repository history.",
+    "riskReason": "Repository objects can contain sensitive data even when no longer in the working tree.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD216", "command": "git grep", "aliases": [], "category": "Version Control",
+    "description": "Searches tracked files or selected repository objects for matching text.",
+    "impact": "May print secrets or private information stored in source or history.",
+    "riskReason": "Search output can expose sensitive repository content.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD217", "command": "git show-ref", "aliases": [], "category": "Version Control",
+    "description": "Lists references and the object identifiers they point to.",
+    "impact": "Reveals branch, tag, or other reference names.",
+    "riskReason": "Normally read-only, though reference names may reveal project activity.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD218", "command": "git archive", "aliases": [], "category": "Version Control",
+    "description": "Creates an archive containing files from a selected Git tree or commit.",
+    "impact": "Reads repository content and creates an archive that may contain private files.",
+    "riskReason": "Archive output can expose data if sent or stored in an unintended location.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD219", "command": "git bundle", "aliases": [], "category": "Version Control",
+    "description": "Creates or reads a portable file containing Git objects and references.",
+    "impact": "May package repository history and project data into a transferable file.",
+    "riskReason": "Bundles can disclose complete or sensitive repository history.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD220", "command": "git sparse-checkout", "aliases": [], "category": "Version Control",
+    "description": "Configures which parts of a repository are populated in the working directory.",
+    "impact": "Changes checkout configuration and visible working files.",
+    "riskReason": "A configuration change may make files appear missing or affect later operations.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD221", "command": "git bisect", "aliases": [], "category": "Version Control",
+    "description": "Searches commit history to identify which change introduced a problem.",
+    "impact": "Moves the working tree between commits during the investigation.",
+    "riskReason": "Uncommitted work can be affected if not saved before changing revisions.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD222", "command": "git notes", "aliases": [], "category": "Version Control",
+    "description": "Reads or changes notes attached to Git objects such as commits.",
+    "impact": "May add or remove repository metadata and can be pushed to remotes.",
+    "riskReason": "Changes are repository state and may be shared with others.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD223", "command": "git shortlog", "aliases": [], "category": "Version Control",
+    "description": "Summarizes commit history, often grouped by author.",
+    "impact": "Reveals contributor and commit metadata.",
+    "riskReason": "Normally read-only, but repository history may be private.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD224", "command": "git whatchanged", "aliases": [], "category": "Version Control",
+    "description": "Displays commit history together with file-change information; Git describes it as a legacy interface.",
+    "impact": "Reads commit and file-change metadata.",
+    "riskReason": "Normally read-only, but output may reveal private history.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD225", "command": "git ls-remote", "aliases": [], "category": "Version Control",
+    "description": "Lists references advertised by a remote repository without fetching their contents.",
+    "impact": "Contacts a remote host and reveals remote branch or tag names.",
+    "riskReason": "Uses the configured remote and may reveal repository metadata.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD226", "command": "git diff-tree", "aliases": [], "category": "Version Control",
+    "description": "Shows file differences between Git tree objects or commits.",
+    "impact": "Reads repository objects and displays changed paths or lines.",
+    "riskReason": "Normally read-only, though output may expose private code.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD227", "command": "git name-rev", "aliases": [], "category": "Version Control",
+    "description": "Finds human-readable reference names that describe Git object identifiers.",
+    "impact": "Reads repository reference and history metadata.",
+    "riskReason": "Normally read-only and informational.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD228", "command": "git count-objects", "aliases": [], "category": "Version Control",
+    "description": "Reports storage statistics for objects in a local repository.",
+    "impact": "Reads repository storage metadata.",
+    "riskReason": "Normally read-only and informational.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD229", "command": "git fsck", "aliases": [], "category": "Version Control",
+    "description": "Checks Git object connectivity and validity in a repository.",
+    "impact": "Reads and verifies repository object data.",
+    "riskReason": "Normally diagnostic, but options may affect unreachable-object handling.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD230", "command": "npm update", "aliases": ["npm upgrade"], "category": "Package Management",
+    "description": "Updates installed packages within version ranges declared by a Node.js project.",
+    "impact": "Changes installed dependencies and may update lock-file information.",
+    "riskReason": "New package versions or lifecycle scripts can change project behavior.",
+    "suggestedRisk": "MEDIUM", "source": "npm Documentation"
+  },
+  {
+    "id": "CMD231", "command": "npm ci", "aliases": [], "category": "Package Management",
+    "description": "Recreates a Node.js dependency installation from the lock file and removes the existing node_modules directory first.",
+    "impact": "Deletes and recreates installed dependencies; project source is normally unchanged.",
+    "riskReason": "Package installation may run scripts and fetch third-party code.",
+    "suggestedRisk": "MEDIUM", "source": "npm Documentation"
+  },
+  {
+    "id": "CMD232", "command": "npm start", "aliases": [], "category": "Package Management",
+    "description": "Runs the project's configured start script when one is defined.",
+    "impact": "May launch a server or other project-defined programs.",
+    "riskReason": "The script's actual effects depend on project configuration.",
+    "suggestedRisk": "MEDIUM", "source": "npm Documentation"
+  },
+  {
+    "id": "CMD233", "command": "npm build", "aliases": [], "category": "Package Management",
+    "description": "Runs npm's build-related lifecycle behavior or a project build script, depending on package configuration and npm version.",
+    "impact": "May execute scripts and create or replace generated build files.",
+    "riskReason": "Project scripts can run arbitrary operations; inspect configuration and arguments.",
+    "suggestedRisk": "MEDIUM", "source": "npm Documentation"
+  },
+  {
+    "id": "CMD234", "command": "npm test", "aliases": [], "category": "Package Management",
+    "description": "Runs the project's configured test script.",
+    "impact": "Executes project code and may create test output or temporary files.",
+    "riskReason": "The script can perform actions beyond testing depending on project configuration.",
+    "suggestedRisk": "LOW", "source": "npm Documentation"
+  },
+  {
+    "id": "CMD235", "command": "npm publish", "aliases": [], "category": "Package Management",
+    "description": "Uploads a package to a configured npm registry for distribution.",
+    "impact": "Publishes package contents to a remote service and may make them public.",
+    "riskReason": "Publication can disclose files or release unintended code.",
+    "suggestedRisk": "HIGH", "source": "npm Documentation"
+  },
+  {
+    "id": "CMD236", "command": "npm login", "aliases": [], "category": "Package Management",
+    "description": "Authenticates the user with an npm registry and stores or updates credentials.",
+    "impact": "Changes authentication state and handles account credentials.",
+    "riskReason": "Credentials must be sent only to a trusted registry and kept private.",
+    "suggestedRisk": "MEDIUM", "source": "npm Documentation"
+  },
+  {
+    "id": "CMD237", "command": "npm config", "aliases": [], "category": "Package Management",
+    "description": "Reads or changes npm configuration such as registries, settings, and authentication-related options.",
+    "impact": "Can affect package sources, installs, and stored credentials.",
+    "riskReason": "An untrusted registry or unsafe configuration can affect future package operations.",
+    "suggestedRisk": "MEDIUM", "source": "npm Documentation"
+  },
+  {
+    "id": "CMD238", "command": "npx", "aliases": [], "category": "Package Management",
+    "description": "Runs a package-provided executable, potentially downloading it when it is not already available.",
+    "impact": "May execute code from a third-party package and access the current project.",
+    "riskReason": "Review the package source and requested executable before running it.",
+    "suggestedRisk": "MEDIUM", "source": "npm Documentation"
+  },
+  {
+    "id": "CMD239", "command": "pnpm", "aliases": [], "category": "Package Management",
+    "description": "Manages Node.js packages and runs project scripts; the subcommand determines its effects.",
+    "impact": "May install or remove packages, modify project files, or execute scripts.",
+    "riskReason": "Package sources and lifecycle scripts can introduce untrusted code.",
+    "suggestedRisk": "MEDIUM", "source": "pnpm Documentation"
+  },
+  {
+    "id": "CMD240", "command": "yarn", "aliases": [], "category": "Package Management",
+    "description": "Manages Node.js dependencies and runs project scripts; the subcommand determines its effects.",
+    "impact": "May change dependencies, project files, or run configured scripts.",
+    "riskReason": "Third-party packages and scripts can affect the environment.",
+    "suggestedRisk": "MEDIUM", "source": "Yarn Documentation"
+  },
+  {
+    "id": "CMD241", "command": "bun", "aliases": ["bunx"], "category": "Package Management and Runtime",
+    "description": "Runs the Bun JavaScript runtime and package tooling; bunx can run package-provided executables.",
+    "impact": "May execute JavaScript, install packages, or run third-party code.",
+    "riskReason": "Effects depend on the subcommand, project configuration, and package source.",
+    "suggestedRisk": "MEDIUM", "source": "Bun Documentation"
+  },
+  {
+    "id": "CMD242", "command": "pip list", "aliases": [], "category": "Python Package Management",
+    "description": "Lists packages installed in the selected Python environment.",
+    "impact": "Reveals package names and versions.",
+    "riskReason": "Normally read-only, but output may reveal software and environment details.",
+    "suggestedRisk": "LOW", "source": "Python Packaging Documentation"
+  },
+  {
+    "id": "CMD243", "command": "pip freeze", "aliases": [], "category": "Python Package Management",
+    "description": "Prints installed Python packages and versions in a requirements-style format.",
+    "impact": "Reveals dependency names and versions.",
+    "riskReason": "Normally read-only, but output may disclose project environment details.",
+    "suggestedRisk": "LOW", "source": "Python Packaging Documentation"
+  },
+  {
+    "id": "CMD244", "command": "pip upgrade", "aliases": [], "category": "Python Package Management",
+    "description": "pip does not provide a general upgrade subcommand; a request using this form may fail or refer to a wrapper.",
+    "impact": "No standard pip upgrade operation is defined by this command form.",
+    "riskReason": "Check the actual executable and arguments rather than assuming an upgrade occurred.",
+    "suggestedRisk": "LOW", "source": "pip Documentation"
+  },
+  {
+    "id": "CMD245", "command": "pipx", "aliases": [], "category": "Python Package Management",
+    "description": "Installs and runs Python command-line applications in isolated environments.",
+    "impact": "Downloads third-party packages and makes their executables available.",
+    "riskReason": "Installed applications can execute code with the user's permissions.",
+    "suggestedRisk": "MEDIUM", "source": "pipx Documentation"
+  },
+  {
+    "id": "CMD246", "command": "uv", "aliases": [], "category": "Python Package Management",
+    "description": "Manages Python projects, environments, and packages; the subcommand determines the operation.",
+    "impact": "May download packages, change environments, or execute project tools.",
+    "riskReason": "Package sources and project commands can affect files and run code.",
+    "suggestedRisk": "MEDIUM", "source": "uv Documentation"
+  },
+  {
+    "id": "CMD247", "command": "poetry", "aliases": [], "category": "Python Package Management",
+    "description": "Manages Python project dependencies, environments, builds, and publication.",
+    "impact": "May change dependency files, install packages, or publish artifacts.",
+    "riskReason": "Effects depend on the subcommand and configured package sources.",
+    "suggestedRisk": "MEDIUM", "source": "Poetry Documentation"
+  },
+  {
+    "id": "CMD248", "command": "conda", "aliases": [], "category": "Python Package Management",
+    "description": "Creates and manages software environments and packages, including non-Python dependencies.",
+    "impact": "May install, update, or remove packages and alter environments.",
+    "riskReason": "Package changes affect the selected environment and use configured repositories.",
+    "suggestedRisk": "MEDIUM", "source": "Conda Documentation"
+  },
+  {
+    "id": "CMD249", "command": "mamba", "aliases": [], "category": "Python Package Management",
+    "description": "Manages Conda-compatible environments and packages using a fast package solver.",
+    "impact": "May install, update, or remove packages in an environment.",
+    "riskReason": "Package changes affect the selected environment and use configured repositories.",
+    "suggestedRisk": "MEDIUM", "source": "Mamba Documentation"
+  },
+  {
+    "id": "CMD250", "command": "mvn compile", "aliases": [], "category": "Build Management",
+    "description": "Compiles source code in a Maven project and runs earlier lifecycle steps.",
+    "impact": "Creates build outputs and may run configured plugins.",
+    "riskReason": "Build plugins execute project-defined code and can access the environment.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD251", "command": "mvn test", "aliases": [], "category": "Build Management",
+    "description": "Compiles and runs a Maven project's tests.",
+    "impact": "Executes project and test code and creates build output.",
+    "riskReason": "Tests and plugins can perform actions beyond assertions.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD252", "command": "mvn verify", "aliases": [], "category": "Build Management",
+    "description": "Runs Maven lifecycle checks through verification, including earlier build and test phases.",
+    "impact": "Executes project plugins and creates or checks build artifacts.",
+    "riskReason": "Configured plugins can execute additional project-defined operations.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD253", "command": "mvn install", "aliases": [], "category": "Build Management",
+    "description": "Builds a Maven project and copies its artifact into the local Maven repository.",
+    "impact": "Creates build outputs and changes the local dependency cache.",
+    "riskReason": "Build plugins execute project code; installed artifacts may affect other local builds.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD254", "command": "mvn dependency:tree", "aliases": [], "category": "Build Management",
+    "description": "Displays the dependencies Maven resolves for the project and their relationships.",
+    "impact": "Reads project configuration and may contact repositories to resolve dependency metadata.",
+    "riskReason": "Normally informational, but remote repositories and project plugins may be involved.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD255", "command": "gradle build", "aliases": [], "category": "Build Management",
+    "description": "Runs the Gradle tasks needed to build a project.",
+    "impact": "Executes build scripts and plugins and creates or replaces generated artifacts.",
+    "riskReason": "Build scripts can run arbitrary code and access local resources.",
+    "suggestedRisk": "LOW", "source": "Gradle Documentation"
+  },
+  {
+    "id": "CMD256", "command": "gradle test", "aliases": [], "category": "Build Management",
+    "description": "Runs the project's Gradle test tasks.",
+    "impact": "Executes test and build code and may create generated files.",
+    "riskReason": "Tests and plugins can perform actions beyond test execution.",
+    "suggestedRisk": "LOW", "source": "Gradle Documentation"
+  },
+  {
+    "id": "CMD257", "command": "gradle clean", "aliases": [], "category": "Build Management",
+    "description": "Runs Gradle clean tasks that remove generated build outputs.",
+    "impact": "Deletes generated files in configured build directories.",
+    "riskReason": "Custom clean tasks may remove more than standard generated artifacts.",
+    "suggestedRisk": "LOW", "source": "Gradle Documentation"
+  },
+  {
+    "id": "CMD258", "command": "gradle assemble", "aliases": [], "category": "Build Management",
+    "description": "Runs Gradle tasks that assemble project outputs without necessarily running all verification tasks.",
+    "impact": "Executes build logic and creates artifacts.",
+    "riskReason": "Build scripts and plugins can run arbitrary project-defined operations.",
+    "suggestedRisk": "LOW", "source": "Gradle Documentation"
+  },
+  {
+    "id": "CMD259", "command": "gradle check", "aliases": [], "category": "Build Management",
+    "description": "Runs Gradle verification tasks configured for the project.",
+    "impact": "Executes tests and checks and may create reports or other generated files.",
+    "riskReason": "Custom verification tasks may perform additional operations.",
+    "suggestedRisk": "LOW", "source": "Gradle Documentation"
+  },
+  {
+    "id": "CMD260", "command": "gradlew", "aliases": [], "category": "Build Management",
+    "description": "Runs the Gradle Wrapper, which selects a project-configured Gradle version and executes requested tasks.",
+    "impact": "May download Gradle, execute build scripts, and create or remove project files.",
+    "riskReason": "Wrapper and build configuration should be trusted because they can execute code.",
+    "suggestedRisk": "MEDIUM", "source": "Gradle Documentation"
+  },
+  {
+    "id": "CMD261", "command": "cargo", "aliases": [], "category": "Build Management",
+    "description": "Builds, tests, and manages Rust packages; the subcommand determines its effects.",
+    "impact": "May download dependencies, compile code, or execute build scripts.",
+    "riskReason": "Third-party dependencies and build scripts can run code.",
+    "suggestedRisk": "MEDIUM", "source": "Cargo Documentation"
+  },
+  {
+    "id": "CMD262", "command": "go", "aliases": [], "category": "Build Management",
+    "description": "Builds, tests, runs, or manages Go code and modules depending on the subcommand.",
+    "impact": "May download modules, execute programs, or create build artifacts.",
+    "riskReason": "Modules and project code may be untrusted; inspect the selected subcommand.",
+    "suggestedRisk": "MEDIUM", "source": "Go Documentation"
+  },
+  {
+    "id": "CMD263", "command": "dotnet", "aliases": [], "category": "Build Management",
+    "description": "Builds, runs, tests, or manages .NET projects depending on the subcommand.",
+    "impact": "May restore packages, execute project code, or create artifacts.",
+    "riskReason": "Project configuration and package sources determine the actual effects.",
+    "suggestedRisk": "MEDIUM", "source": ".NET Documentation"
+  },
+  {
+    "id": "CMD264", "command": "nuget", "aliases": [], "category": "Package Management",
+    "description": "Manages .NET packages and package sources; behavior depends on the subcommand.",
+    "impact": "May download, publish, or change package and source configuration.",
+    "riskReason": "Packages and package sources can affect builds and expose project artifacts.",
+    "suggestedRisk": "MEDIUM", "source": "NuGet Documentation"
+  },
+  {
+    "id": "CMD265", "command": "gem", "aliases": [], "category": "Package Management",
+    "description": "Installs, updates, removes, or inspects Ruby packages called gems.",
+    "impact": "Changes the Ruby environment and may run package installation code.",
+    "riskReason": "Third-party packages may contain vulnerabilities or executable setup steps.",
+    "suggestedRisk": "MEDIUM", "source": "RubyGems Documentation"
+  },
+  {
+    "id": "CMD266", "command": "composer", "aliases": [], "category": "Package Management",
+    "description": "Manages PHP project dependencies and scripts.",
+    "impact": "May download packages, change lock files, or execute project scripts.",
+    "riskReason": "Dependencies and scripts from external sources can run code.",
+    "suggestedRisk": "MEDIUM", "source": "Composer Documentation"
+  },
+  {
+    "id": "CMD267", "command": "bundle", "aliases": [], "category": "Package Management",
+    "description": "Manages Ruby project dependencies and runs Bundler tasks.",
+    "impact": "May install gems, change lock files, or execute configured tasks.",
+    "riskReason": "Dependency sources and package code can affect the environment.",
+    "suggestedRisk": "MEDIUM", "source": "Bundler Documentation"
+  },
+  {
+    "id": "CMD268", "command": "flutter", "aliases": [], "category": "Development Tools",
+    "description": "Creates, builds, tests, and manages Flutter applications.",
+    "impact": "May download dependencies, execute build tools, and create generated files.",
+    "riskReason": "Project scripts and dependencies affect what executes.",
+    "suggestedRisk": "MEDIUM", "source": "Flutter Documentation"
+  },
+  {
+    "id": "CMD269", "command": "dart", "aliases": [], "category": "Development Tools",
+    "description": "Runs, compiles, formats, or analyzes Dart code depending on the subcommand.",
+    "impact": "May execute code, download packages, or modify generated files.",
+    "riskReason": "Effects depend on the program and selected tooling.",
+    "suggestedRisk": "MEDIUM", "source": "Dart Documentation"
+  },
+  {
+    "id": "CMD270", "command": "swift", "aliases": [], "category": "Development Tools",
+    "description": "Runs Swift code or invokes Swift package and build operations.",
+    "impact": "May execute programs, resolve packages, or create build outputs.",
+    "riskReason": "The supplied code and package configuration determine its effects.",
+    "suggestedRisk": "MEDIUM", "source": "Swift Documentation"
+  },
+  {
+    "id": "CMD271", "command": "javac", "aliases": [], "category": "Development Tools",
+    "description": "Compiles Java source files into class files or other requested outputs.",
+    "impact": "Reads source files and writes compiled artifacts.",
+    "riskReason": "Compiler plugins and annotation processors may execute code during compilation.",
+    "suggestedRisk": "LOW", "source": "Java Documentation"
+  },
+  {
+    "id": "CMD272", "command": "java", "aliases": [], "category": "Development Tools",
+    "description": "Starts a Java virtual machine to run a class, JAR, or other supported application.",
+    "impact": "The application can access files, launch processes, or use the network.",
+    "riskReason": "Actual behavior depends on the selected program and permissions.",
+    "suggestedRisk": "MEDIUM", "source": "Java Documentation"
+  },
+  {
+    "id": "CMD273", "command": "tsc", "aliases": [], "category": "Development Tools",
+    "description": "Checks and compiles TypeScript source files into JavaScript or other configured output.",
+    "impact": "Reads source and configuration files and may create or replace output files.",
+    "riskReason": "Custom compiler configuration or plugins can affect generated outputs.",
+    "suggestedRisk": "LOW", "source": "TypeScript Documentation"
+  },
+  {
+    "id": "CMD274", "command": "eslint", "aliases": [], "category": "Development Tools",
+    "description": "Analyzes JavaScript or TypeScript files for configured code-quality and style rules.",
+    "impact": "Normally reads source; fix options can rewrite files.",
+    "riskReason": "Autofix modes modify project files and plugins/configuration are project code.",
+    "suggestedRisk": "LOW", "source": "ESLint Documentation"
+  },
+  {
+    "id": "CMD275", "command": "prettier", "aliases": [], "category": "Development Tools",
+    "description": "Formats supported source and configuration files.",
+    "impact": "Write modes can modify files across the selected project.",
+    "riskReason": "Formatting can create broad diffs or overwrite unintended files.",
+    "suggestedRisk": "LOW", "source": "Prettier Documentation"
+  },
+  {
+    "id": "CMD276", "command": "pytest", "aliases": [], "category": "Development Tools",
+    "description": "Discovers and runs Python tests in the selected project.",
+    "impact": "Executes test and project code and may create cache or report files.",
+    "riskReason": "Tests can perform actions beyond testing depending on project code.",
+    "suggestedRisk": "LOW", "source": "pytest Documentation"
+  },
+  {
+    "id": "CMD277", "command": "rustfmt", "aliases": [], "category": "Development Tools",
+    "description": "Formats Rust source files according to rustfmt configuration.",
+    "impact": "Write modes can change source files.",
+    "riskReason": "Formatting can modify many files if a broad target is selected.",
+    "suggestedRisk": "LOW", "source": "Rust Documentation"
+  },
+  {
+    "id": "CMD278", "command": "gofmt", "aliases": [], "category": "Development Tools",
+    "description": "Formats Go source files using the standard Go formatting rules.",
+    "impact": "Write modes can change source files.",
+    "riskReason": "Formatting can modify selected files and create a broad diff.",
+    "suggestedRisk": "LOW", "source": "Go Documentation"
+  },
+  {
+    "id": "CMD279", "command": "clang-format", "aliases": [], "category": "Development Tools",
+    "description": "Formats C-family source files using configured style rules.",
+    "impact": "Write modes can change source files.",
+    "riskReason": "Broad formatting runs can modify many project files.",
+    "suggestedRisk": "LOW", "source": "Clang Documentation"
+  },
+  {
+    "id": "CMD280", "command": "winget", "aliases": [], "category": "System Package Management",
+    "description": "Installs, updates, removes, or inspects Windows software packages depending on the subcommand.",
+    "impact": "May download software and change installed applications or system settings.",
+    "riskReason": "Package sources and installer actions affect the computer beyond the project.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Package Manager Documentation"
+  },
+  {
+    "id": "CMD281", "command": "choco", "aliases": [], "category": "System Package Management",
+    "description": "Uses Chocolatey to install, upgrade, remove, or inspect Windows software packages.",
+    "impact": "May download installers and change system-wide software.",
+    "riskReason": "Package scripts and installers may run with broad system access.",
+    "suggestedRisk": "MEDIUM", "source": "Chocolatey Documentation"
+  },
+  {
+    "id": "CMD282", "command": "scoop", "aliases": [], "category": "System Package Management",
+    "description": "Installs, updates, and removes applications managed by Scoop on Windows.",
+    "impact": "Downloads and changes software in the selected Scoop installation.",
+    "riskReason": "Packages and manifests can run scripts and come from configured sources.",
+    "suggestedRisk": "MEDIUM", "source": "Scoop Documentation"
+  },
+  {
+    "id": "CMD283", "command": "apt", "aliases": [], "category": "System Package Management",
+    "description": "Manages software packages on Debian-based systems.",
+    "impact": "Can install, upgrade, remove packages, and change system files.",
+    "riskReason": "System package operations can affect core operating-system components.",
+    "suggestedRisk": "HIGH", "source": "Debian APT Documentation"
+  },
+  {
+    "id": "CMD284", "command": "apt-get", "aliases": [], "category": "System Package Management",
+    "description": "Installs, upgrades, removes, or retrieves package information on Debian-based systems.",
+    "impact": "May change system packages and files, often requiring administrator access.",
+    "riskReason": "Package changes can affect system stability and security.",
+    "suggestedRisk": "HIGH", "source": "Debian APT Documentation"
+  },
+  {
+    "id": "CMD285", "command": "yum", "aliases": [], "category": "System Package Management",
+    "description": "Manages packages on systems that use the Yellowdog Updater Modified package manager.",
+    "impact": "Can install, update, or remove system software.",
+    "riskReason": "Package changes affect system files and may run package scripts.",
+    "suggestedRisk": "HIGH", "source": "Yum Documentation"
+  },
+  {
+    "id": "CMD286", "command": "dnf", "aliases": [], "category": "System Package Management",
+    "description": "Manages software packages on Fedora-family and related Linux systems.",
+    "impact": "Can install, update, or remove system software and dependencies.",
+    "riskReason": "Package scripts and dependency changes can alter system behavior.",
+    "suggestedRisk": "HIGH", "source": "DNF Documentation"
+  },
+  {
+    "id": "CMD287", "command": "brew", "aliases": [], "category": "System Package Management",
+    "description": "Installs, updates, removes, or inspects software packages on macOS and Linux.",
+    "impact": "Downloads packages and changes the Homebrew installation.",
+    "riskReason": "Package formulas may run install steps and use external sources.",
+    "suggestedRisk": "MEDIUM", "source": "Homebrew Documentation"
+  },
+  {
+    "id": "CMD288", "command": "pacman", "aliases": [], "category": "System Package Management",
+    "description": "Manages software packages on Arch Linux systems.",
+    "impact": "Can install, update, or remove system packages and dependencies.",
+    "riskReason": "Changes system files and may run package lifecycle scripts.",
+    "suggestedRisk": "HIGH", "source": "Arch Linux Documentation"
+  },
+  {
+    "id": "CMD289", "command": "zypper", "aliases": [], "category": "System Package Management",
+    "description": "Manages software packages and repositories on SUSE-based systems.",
+    "impact": "May install, update, or remove system components.",
+    "riskReason": "Package and repository changes can affect system integrity.",
+    "suggestedRisk": "HIGH", "source": "SUSE Documentation"
+  },
+  {
+    "id": "CMD290", "command": "apk", "aliases": [], "category": "System Package Management",
+    "description": "Manages packages on Alpine Linux systems.",
+    "impact": "May add, update, or remove system software.",
+    "riskReason": "Package changes affect system files and dependency behavior.",
+    "suggestedRisk": "HIGH", "source": "Alpine Linux Documentation"
+  },
+  {
+    "id": "CMD291", "command": "snap", "aliases": [], "category": "System Package Management",
+    "description": "Installs, updates, removes, or manages Snap packages.",
+    "impact": "Changes installed applications and may download software from a remote store.",
+    "riskReason": "Package permissions and sources affect what installed software can access.",
+    "suggestedRisk": "MEDIUM", "source": "Snap Documentation"
+  },
+  {
+    "id": "CMD292", "command": "nix-env", "aliases": [], "category": "System Package Management",
+    "description": "Manages user profiles and package installations in the Nix package system.",
+    "impact": "Changes package profiles and may download software or dependencies.",
+    "riskReason": "Package expressions and sources determine what is installed.",
+    "suggestedRisk": "MEDIUM", "source": "Nix Documentation"
+  },
+  {
+    "id": "CMD293", "command": "port", "aliases": [], "category": "System Package Management",
+    "description": "Uses MacPorts to install, upgrade, or remove software on macOS.",
+    "impact": "Downloads and changes installed software and dependencies.",
+    "riskReason": "Build and installation steps can execute code and change system files.",
+    "suggestedRisk": "MEDIUM", "source": "MacPorts Documentation"
+  },
+  {
+    "id": "CMD294", "command": "msiexec", "aliases": [], "category": "System Package Management",
+    "description": "Installs, configures, repairs, or removes Windows Installer packages.",
+    "impact": "Can change applications, services, files, and system configuration.",
+    "riskReason": "Installer packages may make broad system changes.",
+    "suggestedRisk": "HIGH", "source": "Microsoft Windows Installer Documentation"
+  },
+  {
+    "id": "CMD295", "command": "docker stop", "aliases": [], "category": "Container Management",
+    "description": "Stops one or more running Docker containers.",
+    "impact": "Interrupts processes and services running inside the selected containers.",
+    "riskReason": "Stopping a container may interrupt an application or lose unsaved in-container data.",
+    "suggestedRisk": "MEDIUM", "source": "Docker Documentation"
+  },
+  {
+    "id": "CMD296", "command": "docker start", "aliases": [], "category": "Container Management",
+    "description": "Starts one or more previously created Docker containers.",
+    "impact": "Runs container processes with the permissions, mounts, and network settings configured for them.",
+    "riskReason": "Container settings may expose host files or services.",
+    "suggestedRisk": "MEDIUM", "source": "Docker Documentation"
+  },
+  {
+    "id": "CMD297", "command": "docker rmi", "aliases": [], "category": "Container Management",
+    "description": "Removes one or more Docker images from local storage when they are not in use.",
+    "impact": "Deletes local image data and may require images to be downloaded again.",
+    "riskReason": "Removing images can disrupt reproducible development or deployment workflows.",
+    "suggestedRisk": "MEDIUM", "source": "Docker Documentation"
+  },
+  {
+    "id": "CMD298", "command": "docker ps", "aliases": [], "category": "Container Management",
+    "description": "Lists Docker containers, typically those currently running.",
+    "impact": "Reveals container names, images, ports, and status.",
+    "riskReason": "Normally read-only, but output can reveal application and infrastructure details.",
+    "suggestedRisk": "LOW", "source": "Docker Documentation"
+  },
+  {
+    "id": "CMD299", "command": "docker images", "aliases": [], "category": "Container Management",
+    "description": "Lists Docker images stored on the local computer.",
+    "impact": "Reveals image names, tags, and sizes.",
+    "riskReason": "Normally read-only, but output may reveal software and project details.",
+    "suggestedRisk": "LOW", "source": "Docker Documentation"
+  },
+  {
+    "id": "CMD300", "command": "docker logs", "aliases": [], "category": "Container Management",
+    "description": "Displays output recorded by a Docker container.",
+    "impact": "May reveal application activity, user data, or credentials written to logs.",
+    "riskReason": "Log output can contain sensitive information.",
+    "suggestedRisk": "LOW", "source": "Docker Documentation"
+  },
+  {
+    "id": "CMD301", "command": "docker inspect", "aliases": [], "category": "Container Management",
+    "description": "Displays detailed configuration and state for Docker objects.",
+    "impact": "May reveal environment variables, mounts, network settings, and other configuration.",
+    "riskReason": "Detailed metadata can expose secrets or host paths.",
+    "suggestedRisk": "LOW", "source": "Docker Documentation"
+  },
+  {
+    "id": "CMD302", "command": "docker compose up", "aliases": [], "category": "Container Management",
+    "description": "Creates or starts services described in a Compose project.",
+    "impact": "Runs containers and may create networks, volumes, images, or host port bindings.",
+    "riskReason": "Compose configuration may mount host files or grant containers broad access.",
+    "suggestedRisk": "MEDIUM", "source": "Docker Compose Documentation"
+  },
+  {
+    "id": "CMD303", "command": "docker compose down", "aliases": [], "category": "Container Management",
+    "description": "Stops and removes containers and networks created by a Compose project.",
+    "impact": "Interrupts services and removes container/network resources; volumes are retained unless options request removal.",
+    "riskReason": "Additional options can delete persistent data such as volumes.",
+    "suggestedRisk": "MEDIUM", "source": "Docker Compose Documentation"
+  },
+  {
+    "id": "CMD304", "command": "podman", "aliases": [], "category": "Container Management",
+    "description": "Runs and manages containers and images; the subcommand controls whether it starts, inspects, or removes resources.",
+    "impact": "May execute containers, change images, or remove container data.",
+    "riskReason": "Privileged containers and host filesystem mounts can affect the host system.",
+    "suggestedRisk": "MEDIUM", "source": "Podman Documentation"
+  },
+  {
+    "id": "CMD305", "command": "kubectl", "aliases": [], "category": "Container and Cluster Management",
+    "description": "Communicates with a Kubernetes cluster to inspect or change cluster resources.",
+    "impact": "Depending on the subcommand and permissions, it can deploy, modify, or remove workloads and configuration.",
+    "riskReason": "Cluster changes can affect shared services and production workloads.",
+    "suggestedRisk": "HIGH", "source": "Kubernetes Documentation"
+  },
+  {
+    "id": "CMD306", "command": "env", "aliases": ["printenv"], "category": "Credential and System Information",
+    "description": "Displays environment variables, or launches a command with a modified environment when arguments are supplied.",
+    "impact": "Output may contain access tokens, passwords, or other private configuration.",
+    "riskReason": "Environment variables are commonly used to hold secrets and should be handled carefully.",
+    "suggestedRisk": "MEDIUM", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD307", "command": "cmdkey", "aliases": [], "category": "Credential Management",
+    "description": "Manages saved Windows credentials; listing mode displays credential target names and related metadata.",
+    "impact": "May reveal stored-account information or change saved credentials.",
+    "riskReason": "Credential data is sensitive; avoid exposing it in logs or untrusted output.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD308", "command": "vaultcmd", "aliases": [], "category": "Credential Management",
+    "description": "Manages Windows Vault credentials and stored authentication information.",
+    "impact": "May reveal metadata about stored credentials or change credential records.",
+    "riskReason": "Stored authentication data is sensitive and can affect access to accounts.",
+    "suggestedRisk": "HIGH", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD309", "command": "security find-generic-password", "aliases": [], "category": "Credential Management",
+    "description": "Queries macOS Keychain for a generic-password item matching specified attributes.",
+    "impact": "May reveal account or secret information if access is granted.",
+    "riskReason": "Keychain data is sensitive and should only be accessed for authorized purposes.",
+    "suggestedRisk": "HIGH", "source": "Apple macOS Documentation"
+  },
+  {
+    "id": "CMD310", "command": "secret-tool", "aliases": [], "category": "Credential Management",
+    "description": "Stores, searches for, or retrieves secrets from the desktop Secret Service.",
+    "impact": "Can disclose or change passwords, tokens, and other stored secrets.",
+    "riskReason": "Secret values must not be exposed in command output or logs.",
+    "suggestedRisk": "HIGH", "source": "Secret Service Documentation"
+  },
+  {
+    "id": "CMD311", "command": "crontab", "aliases": [], "category": "Scheduled Tasks",
+    "description": "Displays or changes a user's scheduled jobs on Unix-like systems.",
+    "impact": "Scheduled commands may run repeatedly in the background.",
+    "riskReason": "Unintended scheduled jobs can persist, alter files, or run with the user's permissions.",
+    "suggestedRisk": "MEDIUM", "source": "Linux man-pages Documentation"
+  },
+  {
+    "id": "CMD312", "command": "systemctl", "aliases": [], "category": "System and Service Management",
+    "description": "Inspects or controls systemd services and other system units.",
+    "impact": "Can start, stop, enable, disable, or change system services.",
+    "riskReason": "Service changes affect system availability and startup behavior.",
+    "suggestedRisk": "HIGH", "source": "systemd Documentation"
+  },
+  {
+    "id": "CMD313", "command": "schtasks", "aliases": [], "category": "Scheduled Tasks",
+    "description": "Displays or changes scheduled tasks on Windows.",
+    "impact": "Tasks can run programs at specified times or events.",
+    "riskReason": "Unexpected scheduled tasks can persist and execute with configured account permissions.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD314", "command": "mimikatz", "aliases": [], "category": "Security Testing",
+    "description": "A security-audit tool used by authorized professionals to examine Windows credential protections.",
+    "impact": "Its capabilities can expose highly sensitive authentication material.",
+    "riskReason": "Credential access can compromise accounts; use only in explicitly authorized, controlled assessments.",
+    "suggestedRisk": "CRITICAL", "source": "Mimikatz project documentation"
+  },
+  {
+    "id": "CMD315", "command": "procdump", "aliases": [], "category": "Diagnostics and Security",
+    "description": "Captures process memory dumps for troubleshooting and diagnostics.",
+    "impact": "A dump may contain passwords, tokens, private messages, or other in-memory data.",
+    "riskReason": "Process memory can contain sensitive information and must be protected.",
+    "suggestedRisk": "HIGH", "source": "Microsoft Sysinternals Documentation"
+  },
+  {
+    "id": "CMD316", "command": "lazagne", "aliases": [], "category": "Security Auditing",
+    "description": "A security-audit utility that searches a computer for locally stored application credentials.",
+    "impact": "May access highly sensitive saved passwords and authentication data.",
+    "riskReason": "Credential collection is sensitive and must be limited to authorized audits.",
+    "suggestedRisk": "CRITICAL", "source": "LaZagne project documentation"
+  },
+  {
+    "id": "CMD317", "command": "secretsdump", "aliases": [], "category": "Security Auditing",
+    "description": "A credential-auditing utility that can retrieve authentication data from systems in authorized assessments.",
+    "impact": "May access password hashes or other sensitive account material.",
+    "riskReason": "Credential data can enable account compromise and requires strict authorization and handling.",
+    "suggestedRisk": "CRITICAL", "source": "Impacket project documentation"
+  },
+  {
+    "id": "CMD318", "command": "hashcat", "aliases": [], "category": "Security Auditing",
+    "description": "Performs password-hash recovery and auditing to evaluate password strength.",
+    "impact": "Processes sensitive password-hash data and consumes substantial computing resources.",
+    "riskReason": "Use is appropriate only for hashes you are authorized to audit; recovered passwords are sensitive.",
+    "suggestedRisk": "HIGH", "source": "Hashcat Documentation"
+  },
+  {
+    "id": "CMD319", "command": "john", "aliases": [], "category": "Security Auditing",
+    "description": "John the Ripper audits password strength by testing authorized password-hash data.",
+    "impact": "Processes sensitive authentication data and may recover passwords.",
+    "riskReason": "Use only with permission; password material must be protected.",
+    "suggestedRisk": "HIGH", "source": "John the Ripper Documentation"
+  },
+  {
+    "id": "CMD320", "command": "nmap", "aliases": [], "category": "Network Security",
+    "description": "Discovers hosts and services on a network for administration and authorized security assessments.",
+    "impact": "Sends network probes that may be logged or affect fragile services.",
+    "riskReason": "Scanning systems without permission can violate policy and disrupt operations.",
+    "suggestedRisk": "HIGH", "source": "Nmap Documentation"
+  },
+  {
+    "id": "CMD321", "command": "masscan", "aliases": [], "category": "Network Security",
+    "description": "Performs high-speed network port discovery for authorized inventory and security work.",
+    "impact": "Can generate substantial network traffic and trigger monitoring or service protections.",
+    "riskReason": "Only scan networks with explicit authorization and an approved scope.",
+    "suggestedRisk": "HIGH", "source": "Masscan project documentation"
+  },
+  {
+    "id": "CMD322", "command": "metasploit", "aliases": [], "category": "Security Testing",
+    "description": "A framework used by authorized security teams to validate vulnerabilities in controlled assessments.",
+    "impact": "Depending on selected modules, it can interact with or change remote systems.",
+    "riskReason": "Use only in an explicitly authorized test environment; actions may disrupt or compromise systems.",
+    "suggestedRisk": "CRITICAL", "source": "Metasploit Documentation"
+  },
+  {
+    "id": "CMD323", "command": "msfconsole", "aliases": [], "category": "Security Testing",
+    "description": "Opens the Metasploit Framework's interactive console for authorized security testing.",
+    "impact": "Selected modules may send traffic or affect target systems.",
+    "riskReason": "Use only against systems in an explicitly authorized assessment scope.",
+    "suggestedRisk": "CRITICAL", "source": "Metasploit Documentation"
+  },
+  {
+    "id": "CMD324", "command": "responder", "aliases": [], "category": "Security Testing",
+    "description": "A network security-testing tool used to assess name-resolution and authentication exposure in an authorized lab.",
+    "impact": "Can observe or interact with network authentication traffic.",
+    "riskReason": "Authentication data is sensitive and testing outside an approved scope can affect users or systems.",
+    "suggestedRisk": "CRITICAL", "source": "Responder project documentation"
+  },
+  {
+    "id": "CMD325", "command": "printf", "aliases": [], "category": "Shell Utility",
+    "description": "Formats and prints text or values to standard output.",
+    "impact": "Normally affects only terminal output; redirection can write to files.",
+    "riskReason": "Review redirection and format arguments because they can change output destinations.",
+    "suggestedRisk": "LOW", "source": "POSIX Shell and GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD326", "command": "echo", "aliases": ["Write-Output", "Write-Host"], "category": "Shell Utility",
+    "description": "Writes text or values to the terminal or pipeline; exact behavior depends on the shell.",
+    "impact": "Normally affects output only, but redirection or piping can send data elsewhere.",
+    "riskReason": "Output may disclose secrets or feed another command.",
+    "suggestedRisk": "LOW", "source": "Shell and Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD327", "command": "true", "aliases": [], "category": "Shell Utility",
+    "description": "Returns a successful status without performing a meaningful operation.",
+    "impact": "Normally has no filesystem or system effect.",
+    "riskReason": "Its significance depends on how scripts use its success status.",
+    "suggestedRisk": "LOW", "source": "POSIX Documentation"
+  },
+  {
+    "id": "CMD328", "command": "false", "aliases": [], "category": "Shell Utility",
+    "description": "Returns an unsuccessful status without performing a meaningful operation.",
+    "impact": "Normally has no filesystem or system effect.",
+    "riskReason": "Its significance depends on how scripts use its failure status.",
+    "suggestedRisk": "LOW", "source": "POSIX Documentation"
+  },
+  {
+    "id": "CMD329", "command": "sleep", "aliases": ["Start-Sleep"], "category": "System Utility",
+    "description": "Pauses the current process or shell for a specified duration.",
+    "impact": "Delays later commands and may keep a process running longer.",
+    "riskReason": "Normally low impact; scripts may use delays as part of broader actions.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils and Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD330", "command": "Select-Object", "aliases": [], "category": "Shell Utility",
+    "description": "Selects properties or a subset of objects from PowerShell pipeline input.",
+    "impact": "Transforms displayed or piped data and may expose selected property values.",
+    "riskReason": "Normally read-only; downstream commands determine further effects.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD331", "command": "Measure-Object", "aliases": [], "category": "Shell Utility",
+    "description": "Calculates counts or numeric statistics for objects passed through a PowerShell pipeline.",
+    "impact": "Reads input and reports aggregate values.",
+    "riskReason": "Normally read-only and informational.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD332", "command": "Format-Table", "aliases": ["ft"], "category": "Shell Utility",
+    "description": "Formats PowerShell objects into a table for display.",
+    "impact": "Changes presentation of output, not the underlying objects.",
+    "riskReason": "Normally display-only; downstream processing or output redirection should still be considered.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD333", "command": "cut", "aliases": [], "category": "File Information",
+    "description": "Selects specified fields or character positions from each input line.",
+    "impact": "Reads input and prints selected portions, which may contain secrets.",
+    "riskReason": "Output can disclose sensitive data; redirection may write results to a file.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD334", "command": "tr", "aliases": [], "category": "File Information",
+    "description": "Transforms or removes selected characters in input text.",
+    "impact": "Reads input and writes transformed output.",
+    "riskReason": "Normally a filter; output redirection can modify files.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD335", "command": "jq", "aliases": [], "category": "File Information",
+    "description": "Reads and transforms JSON data using a filter expression.",
+    "impact": "May display private JSON values or write transformed output.",
+    "riskReason": "Filter expressions and output redirection determine what data is exposed or changed.",
+    "suggestedRisk": "LOW", "source": "jq Documentation"
+  },
+  {
+    "id": "CMD336", "command": "awk", "aliases": [], "category": "Shell Utility",
+    "description": "Processes text records using a supplied pattern and action program.",
+    "impact": "Can print, transform, or write data depending on the program.",
+    "riskReason": "The supplied program may execute actions beyond simple text display.",
+    "suggestedRisk": "LOW", "source": "GNU awk Documentation"
+  },
+  {
+    "id": "CMD337", "command": "sed", "aliases": [], "category": "Shell Utility",
+    "description": "Processes text with editing commands and writes the result to output.",
+    "impact": "In-place options can modify files; ordinary output may reveal sensitive content.",
+    "riskReason": "Review editing and in-place options before allowing changes.",
+    "suggestedRisk": "LOW", "source": "GNU sed Documentation"
+  },
+  {
+    "id": "CMD338", "command": "sha256sum", "aliases": [], "category": "File Information",
+    "description": "Calculates or checks SHA-256 digests for files or input.",
+    "impact": "Reads selected data and prints or checks its digest.",
+    "riskReason": "Normally read-only; file paths and digest output may still be sensitive.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD339", "command": "md5sum", "aliases": [], "category": "File Information",
+    "description": "Calculates or checks MD5 digests for files or input; MD5 is not suitable for modern security guarantees.",
+    "impact": "Reads selected data and prints or checks its digest.",
+    "riskReason": "Normally read-only; do not treat MD5 as proof of authenticity.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD340", "command": "shasum", "aliases": [], "category": "File Information",
+    "description": "Calculates or checks SHA-family digests for files or input.",
+    "impact": "Reads selected data and prints or checks its digest.",
+    "riskReason": "Normally read-only; verify the selected algorithm and trusted reference.",
+    "suggestedRisk": "LOW", "source": "Perl Documentation"
+  },
+  {
+    "id": "CMD341", "command": "od", "aliases": [], "category": "File Information",
+    "description": "Displays input bytes in octal, hexadecimal, or another representation.",
+    "impact": "Reads files and may reveal their contents in a different format.",
+    "riskReason": "Output can expose sensitive data even when it is not readable as ordinary text.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD342", "command": "hexdump", "aliases": [], "category": "File Information",
+    "description": "Displays file or input bytes as hexadecimal and other formatted values.",
+    "impact": "Reads data and may reveal content or metadata.",
+    "riskReason": "Binary output may still expose sensitive information.",
+    "suggestedRisk": "LOW", "source": "Linux man-pages Documentation"
+  },
+  {
+    "id": "CMD343", "command": "strings", "aliases": [], "category": "File Information",
+    "description": "Extracts readable text sequences from binary files or other input.",
+    "impact": "May reveal embedded credentials, paths, or other private strings.",
+    "riskReason": "Binary files can contain secrets not visible in normal file viewing.",
+    "suggestedRisk": "LOW", "source": "GNU Binutils Documentation"
+  },
+  {
+    "id": "CMD344", "command": "export", "aliases": [], "category": "Shell Configuration",
+    "description": "Sets or exports environment variables for the current shell and its child processes.",
+    "impact": "Changes configuration inherited by later programs and may expose values to them.",
+    "riskReason": "Variables may contain secrets or alter the behavior of later commands.",
+    "suggestedRisk": "LOW", "source": "POSIX Shell Documentation"
+  },
+  {
+    "id": "CMD345", "command": "Set-StrictMode", "aliases": [], "category": "Shell Configuration",
+    "description": "Enables stricter checking of PowerShell scripts in the current scope.",
+    "impact": "Changes how later script expressions are evaluated.",
+    "riskReason": "Normally a script setting; its effects depend on the surrounding script.",
+    "suggestedRisk": "LOW", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD346", "command": "test", "aliases": [], "category": "Shell Utility",
+    "description": "Evaluates a condition such as file attributes or string comparisons in a shell.",
+    "impact": "Normally returns a status used by conditional logic.",
+    "riskReason": "The condition itself is usually read-only; inspect commands in the surrounding script.",
+    "suggestedRisk": "LOW", "source": "POSIX Shell Documentation"
+  },
+  {
+    "id": "CMD347", "command": "[", "aliases": [], "category": "Shell Utility",
+    "description": "Evaluates a shell test expression and returns a status for conditional logic.",
+    "impact": "Normally evaluates a condition without changing files.",
+    "riskReason": "The expression is usually read-only; inspect surrounding commands for effects.",
+    "suggestedRisk": "LOW", "source": "POSIX Shell Documentation"
+  },
+  {
+    "id": "CMD348", "command": "gradle", "aliases": [], "category": "Build Management",
+    "description": "Runs Gradle tasks defined by a project or plugin.",
+    "impact": "Tasks may execute code, download dependencies, and change project or system files.",
+    "riskReason": "The build scripts and selected tasks determine the effects.",
+    "suggestedRisk": "MEDIUM", "source": "Gradle Documentation"
+  },
+  {
+    "id": "CMD349", "command": "mvnw", "aliases": [], "category": "Build Management",
+    "description": "Runs a Maven Wrapper configured by the project and executes requested Maven goals.",
+    "impact": "May download Maven, execute plugins, and create or remove project files.",
+    "riskReason": "Wrapper configuration and Maven plugins can execute project code.",
+    "suggestedRisk": "MEDIUM", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD350", "command": "git am", "aliases": [], "category": "Version Control",
+    "description": "Applies patches from mailbox-formatted files as commits.",
+    "impact": "Changes the working tree, index, and local commit history.",
+    "riskReason": "Unreviewed patches can alter project files and history.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD351", "command": "git apply", "aliases": [], "category": "Version Control",
+    "description": "Applies a patch to files in a working tree or index.",
+    "impact": "Changes project files or staged content.",
+    "riskReason": "A patch can modify or remove code and configuration.",
+    "suggestedRisk": "MEDIUM", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD352", "command": "git format-patch", "aliases": [], "category": "Version Control",
+    "description": "Creates patch files from commits for review or transfer.",
+    "impact": "Creates files containing project changes and commit metadata.",
+    "riskReason": "Patch files may disclose private code or author information.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD353", "command": "mix", "aliases": [], "category": "Build Management",
+    "description": "Builds, tests, and manages Elixir projects and dependencies.",
+    "impact": "May download packages, execute project code, and create build artifacts.",
+    "riskReason": "Dependencies and project tasks determine what executes.",
+    "suggestedRisk": "MEDIUM", "source": "Elixir Documentation"
+  },
+  {
+    "id": "CMD354", "command": "pub", "aliases": [], "category": "Package Management",
+    "description": "Manages Dart packages and dependencies.",
+    "impact": "May download packages and change project dependency files.",
+    "riskReason": "Third-party packages can introduce code and dependency changes.",
+    "suggestedRisk": "MEDIUM", "source": "Dart Documentation"
+  },
+  {
+    "id": "CMD355", "command": "cabal", "aliases": [], "category": "Package Management",
+    "description": "Builds Haskell packages and manages dependencies and project configuration.",
+    "impact": "May download source packages, execute build steps, and write artifacts.",
+    "riskReason": "Build scripts and dependencies can run code.",
+    "suggestedRisk": "MEDIUM", "source": "Cabal Documentation"
+  },
+  {
+    "id": "CMD356", "command": "stack", "aliases": [], "category": "Package Management",
+    "description": "Builds Haskell projects and manages compiler and package dependencies.",
+    "impact": "May download compilers and packages and create build outputs.",
+    "riskReason": "Project configuration and dependencies determine what code is built or executed.",
+    "suggestedRisk": "MEDIUM", "source": "Haskell Stack Documentation"
+  },
+  {
+    "id": "CMD357", "command": "opam", "aliases": [], "category": "Package Management",
+    "description": "Manages OCaml compiler and package environments.",
+    "impact": "May install or remove packages and alter the selected environment.",
+    "riskReason": "Packages and setup steps can affect the development environment.",
+    "suggestedRisk": "MEDIUM", "source": "opam Documentation"
+  },
+  {
+    "id": "CMD358", "command": "bower", "aliases": [], "category": "Package Management",
+    "description": "Manages front-end packages using the legacy Bower package manager.",
+    "impact": "May download packages and change project dependency files.",
+    "riskReason": "Third-party package content and outdated dependencies can introduce risk.",
+    "suggestedRisk": "MEDIUM", "source": "Bower Documentation"
+  },
+  {
+    "id": "CMD359", "command": "git", "aliases": [], "category": "Version Control",
+    "description": "Runs Git's general command-line interface; a subcommand is normally used to inspect or change a repository.",
+    "impact": "With no subcommand it usually displays usage information; options and subcommands determine other effects.",
+    "riskReason": "Git subcommands can read, modify, or publish repository data.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD360", "command": "git help", "aliases": ["git version", "git --version"], "category": "Version Control",
+    "description": "Displays Git help or version information without changing repository contents.",
+    "impact": "Reads local program information and displays it.",
+    "riskReason": "Normally read-only and informational.",
+    "suggestedRisk": "LOW", "source": "Git Documentation"
+  },
+  {
+    "id": "CMD361", "command": "cmp", "aliases": [], "category": "File Information",
+    "description": "Compares two files byte by byte and reports whether they differ.",
+    "impact": "Reads the selected files and reports comparison results.",
+    "riskReason": "Normally read-only, though file paths and output may expose sensitive information.",
+    "suggestedRisk": "LOW", "source": "GNU diffutils Documentation"
+  },
+  {
+    "id": "CMD362", "command": "code", "aliases": [], "category": "Development Tools",
+    "description": "Opens Visual Studio Code or manages editor extensions and workspaces, depending on options.",
+    "impact": "May open files, change extensions, or launch workspace tooling.",
+    "riskReason": "Workspace tasks and extensions may execute project code.",
+    "suggestedRisk": "LOW", "source": "Visual Studio Code Documentation"
+  },
+  {
+    "id": "CMD363", "command": "mvnw compile", "aliases": [], "category": "Build Management",
+    "description": "Uses the project's Maven Wrapper to compile source code and run earlier lifecycle steps.",
+    "impact": "May download Maven, execute plugins, and write build outputs.",
+    "riskReason": "Wrapper configuration and plugins can execute project-defined code.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD364", "command": "mvnw test", "aliases": [], "category": "Build Management",
+    "description": "Uses the project's Maven Wrapper to compile and run its tests.",
+    "impact": "May download Maven and execute build and test code.",
+    "riskReason": "Tests and plugins can perform actions beyond assertions.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD365", "command": "mvnw verify", "aliases": [], "category": "Build Management",
+    "description": "Uses the project's Maven Wrapper to run lifecycle checks through verification.",
+    "impact": "May download Maven, execute plugins, and create build artifacts.",
+    "riskReason": "Wrapper and plugin configuration can execute project code.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD366", "command": "mvnw package", "aliases": [], "category": "Build Management",
+    "description": "Uses the project's Maven Wrapper to compile and package the project.",
+    "impact": "May download Maven, run plugins, and create a distributable artifact.",
+    "riskReason": "Build plugins can execute project-defined operations.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD367", "command": "mvnw clean", "aliases": [], "category": "Build Management",
+    "description": "Uses the project's Maven Wrapper to remove configured generated build output.",
+    "impact": "Deletes files in project build directories.",
+    "riskReason": "Custom lifecycle configuration may remove additional generated data.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD368", "command": "mvnw install", "aliases": [], "category": "Build Management",
+    "description": "Uses the project's Maven Wrapper to build and install the artifact in the local Maven repository.",
+    "impact": "Creates build files and changes the local dependency cache.",
+    "riskReason": "Build plugins execute project code and installed artifacts can affect later builds.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD369", "command": "mvnw deploy", "aliases": [], "category": "Build Management",
+    "description": "Uses the project's Maven Wrapper to publish a built artifact to a configured remote repository.",
+    "impact": "May download Maven and upload project artifacts externally.",
+    "riskReason": "Deployment publishes software and may expose unintended artifacts.",
+    "suggestedRisk": "HIGH", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD370", "command": "mvnw dependency:tree", "aliases": [], "category": "Build Management",
+    "description": "Uses the project's Maven Wrapper to display the resolved dependency tree.",
+    "impact": "Reads project configuration and may contact repositories to resolve metadata.",
+    "riskReason": "Normally informational, but wrapper and plugin configuration should be trusted.",
+    "suggestedRisk": "LOW", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD371", "command": "npm", "aliases": [], "category": "Package Management",
+    "description": "Runs the Node.js package manager; the subcommand determines whether it inspects, changes, or publishes packages.",
+    "impact": "May change dependencies, execute scripts, or communicate with a package registry.",
+    "riskReason": "Review subcommands, project scripts, and configured package sources.",
+    "suggestedRisk": "MEDIUM", "source": "npm Documentation"
+  },
+  {
+    "id": "CMD372", "command": "pip", "aliases": [], "category": "Python Package Management",
+    "description": "Runs the Python package installer; the subcommand determines whether it inspects or changes an environment.",
+    "impact": "May download, install, or remove packages.",
+    "riskReason": "Package code and configured sources can affect the environment.",
+    "suggestedRisk": "MEDIUM", "source": "Python Packaging Documentation"
+  },
+  {
+    "id": "CMD373", "command": "pip3", "aliases": [], "category": "Python Package Management",
+    "description": "Runs the Python 3 package installer; the subcommand determines the operation.",
+    "impact": "May download, install, or remove packages from a Python environment.",
+    "riskReason": "Third-party packages may execute code and change the selected environment.",
+    "suggestedRisk": "MEDIUM", "source": "Python Packaging Documentation"
+  },
+  {
+    "id": "CMD374", "command": "diff", "aliases": [], "category": "File Information",
+    "description": "Compares text files or other inputs and displays their differences.",
+    "impact": "Reads the selected data and prints changed lines.",
+    "riskReason": "Normally read-only, though output may expose private file contents.",
+    "suggestedRisk": "LOW", "source": "GNU diffutils Documentation"
+  },
+  {
+    "id": "CMD375", "command": "mvn", "aliases": [], "category": "Build Management",
+    "description": "Runs the Apache Maven build tool; the selected goal or lifecycle phase determines its effects.",
+    "impact": "May execute project plugins, download dependencies, and change generated files.",
+    "riskReason": "Project plugins and configuration can execute code with the user's permissions.",
+    "suggestedRisk": "MEDIUM", "source": "Apache Maven Documentation"
+  },
+  {
+    "id": "CMD376", "command": "docker", "aliases": [], "category": "Container Management",
+    "description": "Runs the Docker command-line tool; subcommands inspect or change containers, images, and related resources.",
+    "impact": "May start processes, modify container resources, or access configured host mounts and networks.",
+    "riskReason": "Privileges, mounted host paths, and destructive subcommands can significantly affect the host.",
+    "suggestedRisk": "MEDIUM", "source": "Docker Documentation"
+  },
+  {
+    "id": "CMD377", "command": "nohup", "aliases": [], "category": "Process Management",
+    "description": "Runs a command so it can continue after the calling terminal closes.",
+    "impact": "The child process may continue using resources or changing data in the background.",
+    "riskReason": "Long-running background work may be difficult to notice or stop.",
+    "suggestedRisk": "MEDIUM", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD378", "command": "time", "aliases": [], "category": "Process Management",
+    "description": "Runs a command and reports how long it takes; some shells provide this as a built-in.",
+    "impact": "The wrapped command executes with its normal effects.",
+    "riskReason": "Review the command being measured because time itself does not make it safe.",
+    "suggestedRisk": "LOW", "source": "Shell documentation"
+  },
+  {
+    "id": "CMD379", "command": "builtin", "aliases": [], "category": "Shell Utility",
+    "description": "Asks a shell to run one of its built-in commands rather than an external executable.",
+    "impact": "The selected built-in may change shell state or run an operation.",
+    "riskReason": "The effects depend on the built-in command that follows.",
+    "suggestedRisk": "LOW", "source": "Shell documentation"
+  },
+  {
+    "id": "CMD380", "command": "exec", "aliases": [], "category": "Process Management",
+    "description": "Runs a command in place of the current shell process or changes shell file descriptors.",
+    "impact": "May replace the shell process or redirect its input and output.",
+    "riskReason": "The command and redirections determine the resulting process and data flow.",
+    "suggestedRisk": "MEDIUM", "source": "POSIX Shell Documentation"
+  },
+  {
+    "id": "CMD381", "command": "call", "aliases": [], "category": "Shell and Interpreter",
+    "description": "In Windows batch files, invokes another batch file and returns to the caller afterward.",
+    "impact": "Executes the called script, which may change files or system settings.",
+    "riskReason": "The called script's contents and permissions determine its effects.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD382", "command": "setsid", "aliases": [], "category": "Process Management",
+    "description": "Runs a program in a new session, separate from the current terminal session.",
+    "impact": "The launched process may continue independently and perform its normal actions.",
+    "riskReason": "Detached processes may be less visible to the user.",
+    "suggestedRisk": "LOW", "source": "Linux man-pages Documentation"
+  },
+  {
+    "id": "CMD383", "command": "ionice", "aliases": [], "category": "Process Management",
+    "description": "Runs or adjusts a process with a selected disk input/output scheduling priority.",
+    "impact": "Changes process scheduling behavior and may affect system responsiveness.",
+    "riskReason": "Incorrect priorities can interfere with other system workloads.",
+    "suggestedRisk": "LOW", "source": "Linux man-pages Documentation"
+  },
+  {
+    "id": "CMD384", "command": "stdbuf", "aliases": [], "category": "Process Management",
+    "description": "Runs a program with configured buffering for standard input, output, or error streams.",
+    "impact": "Changes when output is delivered; the wrapped command still executes normally.",
+    "riskReason": "Review the wrapped command because stdbuf does not limit its effects.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD385", "command": "nice", "aliases": [], "category": "Process Management",
+    "description": "Runs a command with a selected scheduling priority on Unix-like systems.",
+    "impact": "Changes how the process competes for CPU time.",
+    "riskReason": "The wrapped command retains its normal access and effects.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD386", "command": "timeout", "aliases": [], "category": "Process Management",
+    "description": "Runs a command for a limited duration and then may send it a signal.",
+    "impact": "The command runs until completion or timeout and may be interrupted.",
+    "riskReason": "A timeout does not prevent changes the command makes before it stops.",
+    "suggestedRisk": "LOW", "source": "GNU Coreutils Documentation"
+  },
+  {
+    "id": "CMD387", "command": "start", "aliases": [], "category": "Process Management",
+    "description": "Starts a program or opens a document using the platform's associated application.",
+    "impact": "May launch a process that reads or changes data.",
+    "riskReason": "The launched program and arguments determine the actual effects.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft Windows and shell documentation"
+  },
+  {
+    "id": "CMD388", "command": "xargs", "aliases": [], "category": "Shell Utility",
+    "description": "Builds and runs a command using items read from input.",
+    "impact": "May execute a command repeatedly on many paths or values.",
+    "riskReason": "Input expansion can affect more files or targets than expected.",
+    "suggestedRisk": "MEDIUM", "source": "GNU findutils Documentation"
+  },
+  {
+    "id": "CMD389", "command": "wsl", "aliases": [], "category": "System and Development Tools",
+    "description": "Runs or manages a Windows Subsystem for Linux distribution and its commands.",
+    "impact": "The Linux process may access shared files and perform actions as the configured user.",
+    "riskReason": "Commands can affect files available to both Windows and Linux environments.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft WSL Documentation"
+  },
+  {
+    "id": "CMD390", "command": "command", "aliases": [], "category": "Shell Utility",
+    "description": "Runs a command or looks up its location using shell command-resolution rules.",
+    "impact": "The selected command executes with its normal effects.",
+    "riskReason": "Inspect the resolved command and its arguments rather than treating this wrapper as harmless.",
+    "suggestedRisk": "LOW", "source": "POSIX Shell Documentation"
+  },
+  {
+    "id": "CMD391", "command": "chronic", "aliases": [], "category": "Process Management",
+    "description": "Runs a command while suppressing its output when it succeeds, commonly in automation.",
+    "impact": "The wrapped command executes and can change files or system state.",
+    "riskReason": "Suppressed output can make unexpected behavior less visible.",
+    "suggestedRisk": "MEDIUM", "source": "moreutils Documentation"
+  },
+  {
+    "id": "CMD392", "command": "sg", "aliases": [], "category": "Privilege Management",
+    "description": "Runs a command with a selected group identity on supported Unix-like systems.",
+    "impact": "Changes the group permissions available to the child command.",
+    "riskReason": "Group access may allow changes to shared or protected resources.",
+    "suggestedRisk": "MEDIUM", "source": "Linux man-pages Documentation"
+  },
+  {
+    "id": "CMD393", "command": "unbuffer", "aliases": [], "category": "Process Management",
+    "description": "Runs a program with terminal-like output buffering, often for automation.",
+    "impact": "The wrapped program executes with its normal effects.",
+    "riskReason": "Review the program being launched; unbuffer only changes output handling.",
+    "suggestedRisk": "LOW", "source": "Expect Documentation"
+  },
+  {
+    "id": "CMD394", "command": "source", "aliases": ["."], "category": "Shell and Interpreter",
+    "description": "Reads and executes a script in the current shell process, changing that shell's environment.",
+    "impact": "The script can modify files, variables, and shell settings or launch other programs.",
+    "riskReason": "Sourced scripts run with the current user's permissions and may affect the calling shell.",
+    "suggestedRisk": "HIGH", "source": "POSIX Shell Documentation"
+  },
+  {
+    "id": "CMD395", "command": "Invoke-Item", "aliases": ["ii"], "category": "System Utility",
+    "description": "Opens a file or item using its default associated application.",
+    "impact": "May launch a program or open content that triggers additional behavior.",
+    "riskReason": "The associated application and selected file determine subsequent effects.",
+    "suggestedRisk": "MEDIUM", "source": "Microsoft PowerShell Documentation"
+  },
+  {
+    "id": "CMD396", "command": "rundll32", "aliases": [], "category": "System Utility",
+    "description": "Loads and invokes supported functions from Windows DLL files.",
+    "impact": "Can load system or third-party code into a process.",
+    "riskReason": "The DLL and requested function determine behavior and may change system state.",
+    "suggestedRisk": "HIGH", "source": "Microsoft Windows Documentation"
+  },
+  {
+    "id": "CMD397", "command": "regsvr32", "aliases": [], "category": "System Utility",
+    "description": "Registers or unregisters COM components on Windows.",
+    "impact": "Changes system registration information and loads component code.",
+    "riskReason": "Registration can affect how applications load components; review the target file.",
+    "suggestedRisk": "HIGH", "source": "Microsoft Windows Documentation"
+  }
+]

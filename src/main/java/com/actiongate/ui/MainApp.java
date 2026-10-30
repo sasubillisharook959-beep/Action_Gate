@@ -4,6 +4,8 @@ import com.actiongate.AppContext;
 import com.actiongate.audit.AuditEvent;
 import com.actiongate.audit.VerificationResult;
 import com.actiongate.authentication.Availability;
+import com.actiongate.commandintelligence.CommandIntelligenceService;
+import com.actiongate.commandintelligence.CommandIntelligenceService.CommandInfo;
 import com.actiongate.integration.CopilotAdapter;
 import com.actiongate.integration.HookSettingsGenerator;
 import com.actiongate.model.RiskLevel;
@@ -13,6 +15,7 @@ import com.actiongate.policy.LevelRule;
 import com.actiongate.policy.PolicyValidationException;
 import com.actiongate.policy.SecurityPolicy;
 import com.actiongate.util.AppPaths;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -36,23 +39,29 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /** ActionGate dashboard. Works with or without a connected agent. */
@@ -60,6 +69,8 @@ public final class MainApp extends Application {
     private AppContext ctx;
     private final AppState state = new AppState();
     private String css;
+    private CommandIntelligenceService commandIntelligence;
+    private String commandIntelligenceError;
 
     @Override
     public void start(Stage stage) {
@@ -73,6 +84,11 @@ public final class MainApp extends Application {
             a.showAndWait();
             Platform.exit();
             return;
+        }
+        try {
+            commandIntelligence = new CommandIntelligenceService();
+        } catch (IOException | IllegalArgumentException e) {
+            commandIntelligenceError = e.getMessage();
         }
         ctx.setApprovalService(new FxApprovalService(state, ctx.auth, css));
         ctx.enforcement.addRequestListener(r -> pendingCommands.put(r.requestId(), new String[]{r.agentId(), r.command()}));
@@ -201,16 +217,110 @@ public final class MainApp extends Application {
         return b;
     }
 
-    private static TableView<DecisionRow> decisionTable(javafx.collections.ObservableList<DecisionRow> items) {
+    private TableView<DecisionRow> decisionTable(javafx.collections.ObservableList<DecisionRow> items) {
         TableView<DecisionRow> t = new TableView<>(items);
         t.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         t.getColumns().add(col("Time", 80, DecisionRow::time));
         t.getColumns().add(col("Risk", 90, DecisionRow::level));
         t.getColumns().add(col("Decision", 90, DecisionRow::verdict));
         t.getColumns().add(col("Command", 420, DecisionRow::command));
+        t.getColumns().add(descriptionColumn(DecisionRow::originalCommand));
         t.getColumns().add(col("Reason", 420, DecisionRow::reason));
         t.setPlaceholder(new Label("No commands evaluated yet. ActionGate stays usable without a connected agent."));
         return t;
+    }
+
+    private <S> TableColumn<S, Void> descriptionColumn(java.util.function.Function<S, String> command) {
+        TableColumn<S, Void> description = new TableColumn<>("Description");
+        description.setPrefWidth(110);
+        description.setCellFactory(column -> new TableCell<>() {
+            private final Button view = new Button("View");
+
+            {
+                view.setOnAction(event -> {
+                    S row = getTableRow().getItem();
+                    if (row != null) showCommandDescription(command.apply(row));
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                setGraphic(empty ? null : view);
+            }
+        });
+        return description;
+    }
+
+    private void showCommandDescription(String originalCommand) {
+        if (commandIntelligence == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Command descriptions are unavailable because the command intelligence database could not be loaded:\n\n"
+                            + commandIntelligenceError,
+                    ButtonType.CLOSE);
+            alert.setTitle("Command description unavailable");
+            alert.show();
+            return;
+        }
+
+        Dialog<Void> dialog = new Dialog<>();
+        dialog.setTitle("Command description");
+        dialog.initModality(Modality.NONE);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+        dialog.getDialogPane().setPrefWidth(720);
+        dialog.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        if (css != null) dialog.getDialogPane().getStylesheets().add(css);
+
+        GridPane details = new GridPane();
+        details.setHgap(12);
+        details.setVgap(8);
+        ColumnConstraints labels = new ColumnConstraints();
+        labels.setMinWidth(145);
+        ColumnConstraints values = new ColumnConstraints();
+        values.setHgrow(Priority.ALWAYS);
+        details.getColumnConstraints().addAll(labels, values);
+
+        TextArea original = new TextArea(originalCommand == null ? "" : originalCommand);
+        original.setEditable(false);
+        original.setWrapText(true);
+        original.setPrefRowCount(3);
+        original.getStyleClass().add("mono");
+        details.add(new Label("Original command"), 0, 0);
+        details.add(original, 1, 0);
+
+        java.util.Optional<CommandInfo> match = commandIntelligence.findCommand(originalCommand);
+        if (match.isPresent()) {
+            CommandInfo info = match.get();
+            addDescriptionValue(details, "Command name", info.command(), 1);
+            addDescriptionValue(details, "Category", info.category(), 2);
+            addDescriptionValue(details, "Description", info.description(), 3);
+            addDescriptionValue(details, "Potential impact", info.impact(), 4);
+            addDescriptionValue(details, "Risk explanation", info.riskReason(), 5);
+            addDescriptionValue(details, "Suggested risk (informational)", info.suggestedRisk(), 6);
+            addDescriptionValue(details, "Source", info.source(), 7);
+        } else {
+            Label unknown = new Label(CommandIntelligenceService.NOT_FOUND_MESSAGE);
+            unknown.setWrapText(true);
+            unknown.setMaxWidth(Double.MAX_VALUE);
+            details.add(unknown, 1, 1);
+        }
+
+        VBox content = new VBox(12, details);
+        content.setPadding(new Insets(12));
+        content.getStyleClass().add("dialog-root");
+        dialog.getDialogPane().setContent(content);
+        dialog.setResizable(true);
+        dialog.show();
+    }
+
+    private static void addDescriptionValue(GridPane details, String name, String value, int row) {
+        Label label = new Label(name);
+        label.getStyleClass().add("section");
+        Label text = new Label(value);
+        text.setWrapText(true);
+        text.setMaxWidth(Double.MAX_VALUE);
+        details.add(label, 0, row);
+        details.add(text, 1, row);
     }
 
     private static <S> TableColumn<S, String> col(String name, double w, java.util.function.Function<S, String> f) {
@@ -264,6 +374,7 @@ public final class MainApp extends Application {
         t.getColumns().add(col("Biometric", 150, AuditEvent::biometricResult));
         t.getColumns().add(col("Rules", 200, AuditEvent::matchedRules));
         t.getColumns().add(col("Command", 400, e -> e.command().replace('\n', ' ')));
+        t.getColumns().add(descriptionColumn(AuditEvent::command));
         t.getColumns().add(col("Hash", 160, e -> e.hash().substring(0, 16) + "…"));
         Label result = new Label("Integrity not verified yet");
         Button refresh = new Button("Refresh");
