@@ -14,7 +14,8 @@ import java.util.UUID;
 /** Adapter for GitHub Copilot's preToolUse hook event. */
 public final class CopilotAdapter implements AgentAdapter {
     public static final String ID = "github-copilot";
-    private static final String TERMINAL_TOOL = "runInTerminal";
+    private static final String VS_CODE_TERMINAL_TOOL = "runInTerminal";
+    private static final String CLI_TERMINAL_TOOL = "powershell";
 
     @Override
     public String agentId() { return ID; }
@@ -29,7 +30,10 @@ public final class CopilotAdapter implements AgentAdapter {
         }
         String tool = Json.asString(root.get("toolName"));
         if (tool == null) throw new InvalidRequestException("toolName missing");
-        if (!TERMINAL_TOOL.equals(tool)) return Optional.empty();
+              if (!VS_CODE_TERMINAL_TOOL.equals(tool)
+                && !CLI_TERMINAL_TOOL.equals(tool)) {
+            return Optional.empty();
+        }
 
         Map<String, Object> args = Json.asObject(root.get("toolArgs"));
         if (args == null) throw new InvalidRequestException("toolArgs missing");
