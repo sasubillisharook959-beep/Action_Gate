@@ -36,28 +36,73 @@ public final class WindowsHelloProvider implements AuthenticationProvider {
     @Override public String name() { return "Windows Hello (UserConsentVerifier)"; }
     @Override public boolean isMock() { return false; }
 
-    @Override
-    public Availability checkAvailability() {
-        if (!windows) return Availability.UNSUPPORTED_PLATFORM;
-        try {
-            String out = runner.run("check", "", Duration.ofSeconds(30));
-            String v = find(out, CHECK_PREFIX);
-            if (v == null) return Availability.UNKNOWN;
-            switch (v) {
-                case "Available": return Availability.AVAILABLE;
-                case "DeviceNotPresent": return Availability.DEVICE_NOT_PRESENT;
-                case "NotConfiguredForUser": return Availability.NOT_CONFIGURED_FOR_USER;
-                case "DisabledByPolicy": return Availability.DISABLED_BY_POLICY;
-                case "DeviceBusy": return Availability.DEVICE_BUSY;
-                default: return Availability.UNKNOWN;
-            }
-        } catch (IOException | CancellationException e) {
-            return Availability.UNKNOWN;
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            return Availability.UNKNOWN;
-        }
+   @Override
+public Availability checkAvailability() {
+if (!windows) {
+return Availability.UNSUPPORTED_PLATFORM;
+}
+
+
+try {
+    String out = runner.run("check", "", Duration.ofSeconds(30));
+
+    String error = find(out, ERROR_PREFIX);
+
+    if (error != null) {
+        System.err.println(
+                "ActionGate Windows Hello availability error: " + error
+        );
+        return Availability.UNKNOWN;
     }
+
+    String v = find(out, CHECK_PREFIX);
+
+    if (v == null) {
+        System.err.println(
+                "ActionGate Windows Hello returned no availability result. Output: " + out
+        );
+        return Availability.UNKNOWN;
+    }
+
+    switch (v) {
+        case "Available":
+            return Availability.AVAILABLE;
+
+        case "DeviceNotPresent":
+            return Availability.DEVICE_NOT_PRESENT;
+
+        case "NotConfiguredForUser":
+            return Availability.NOT_CONFIGURED_FOR_USER;
+
+        case "DisabledByPolicy":
+            return Availability.DISABLED_BY_POLICY;
+
+        case "DeviceBusy":
+            return Availability.DEVICE_BUSY;
+
+        default:
+            System.err.println(
+                    "Unexpected Windows Hello availability: " + v
+            );
+            return Availability.UNKNOWN;
+    }
+
+} catch (IOException | java.util.concurrent.CancellationException e) {
+    System.err.println(
+            "ActionGate Windows Hello bridge failed: " + e
+    );
+    return Availability.UNKNOWN;
+
+} catch (InterruptedException e) {
+    Thread.currentThread().interrupt();
+    System.err.println(
+            "ActionGate Windows Hello check interrupted: " + e
+    );
+    return Availability.UNKNOWN;
+}
+
+
+}
 
     @Override
     public AuthResult authenticate(String promptMessage) {

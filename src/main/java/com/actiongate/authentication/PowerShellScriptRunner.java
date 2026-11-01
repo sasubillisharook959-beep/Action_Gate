@@ -3,18 +3,13 @@ package com.actiongate.authentication;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.util.Base64;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Windows bridge: runs a fixed, bundled script in Windows PowerShell 5.1 (powershell.exe) that calls the WinRT
- * {@code Windows.Security.Credentials.UI.UserConsentVerifier}. The script is written to the process's stdin (so no
- * temp file and no execution-policy change is needed) and the prompt text is passed through an environment variable,
- * never concatenated into script text. No user-controlled string is ever executed.
- */
 public final class PowerShellScriptRunner implements ScriptRunner {
+
     static final String SCRIPT = String.join("\n",
             "$ErrorActionPreference = 'Stop'",
             "try {",
@@ -33,7 +28,7 @@ public final class PowerShellScriptRunner implements ScriptRunner {
             "    Write-Output ('ACTIONGATE_RESULT=' + $r)",
             "  }",
             "} catch {",
-            "  Write-Output ('ACTIONGATE_ERROR=' + $_.Exception.GetType().Name)",
+            "  Write-Output ('ACTIONGATE_ERROR=' + $_.Exception.ToString())",
             "}",
             "exit",
             "");
@@ -41,34 +36,69 @@ public final class PowerShellScriptRunner implements ScriptRunner {
     private static final int MAX_OUTPUT = 64 * 1024;
 
     @Override
-    public String run(String mode, String prompt, Duration timeout) throws IOException, InterruptedException {
-        ProcessBuilder pb = new ProcessBuilder("powershell.exe", "-NoLogo", "-NoProfile", "-NonInteractive", "-Command", "-");
+    public String run(String mode, String prompt, Duration timeout)
+            throws IOException, InterruptedException {
+
+        String encodedScript = Base64.getEncoder().encodeToString(
+                SCRIPT.getBytes(StandardCharsets.UTF_16LE)
+        );
+
+        ProcessBuilder pb = new ProcessBuilder(
+                "powershell.exe",
+                "-NoLogo",
+                "-NoProfile",
+                "-NonInteractive",
+                "-EncodedCommand",
+                encodedScript
+        );
+
         pb.environment().put("ACTIONGATE_MODE", mode);
         pb.environment().put("ACTIONGATE_PROMPT", prompt);
+
         pb.redirectErrorStream(true);
+
         Process p = pb.start();
-        try (OutputStream os = p.getOutputStream()) {
-            os.write(SCRIPT.getBytes(StandardCharsets.UTF_8));
-        }
+
         ByteArrayOutputStream out = new ByteArrayOutputStream();
+
         Thread reader = new Thread(() -> {
             try (InputStream is = p.getInputStream()) {
-                byte[] buf = new byte[4096];
+
+                byte[] buffer = new byte[4096];
                 int n;
-                while ((n = is.read(buf)) > 0) {
-                    if (out.size() < MAX_OUTPUT) out.write(buf, 0, Math.min(n, MAX_OUTPUT - out.size()));
+
+                while ((n = is.read(buffer)) > 0) {
+                    synchronized (out) {
+                        if (out.size() < MAX_OUTPUT) {
+                            out.write(
+                                    buffer,
+                                    0,
+                                    Math.min(n, MAX_OUTPUT - out.size())
+                            );
+                        }
+                    }
                 }
+
             } catch (IOException ignored) {
-                // process ended
+                // Process ended.
             }
         }, "actiongate-hello-reader");
+
         reader.setDaemon(true);
         reader.start();
+
         if (!p.waitFor(timeout.toMillis(), TimeUnit.MILLISECONDS)) {
             p.destroyForcibly();
-            throw new java.util.concurrent.CancellationException("Windows Hello verification timed out");
+
+            throw new java.util.concurrent.CancellationException(
+                    "Windows Hello verification timed out"
+            );
         }
+
         reader.join(2000);
-        return out.toString(StandardCharsets.UTF_8);
+
+        synchronized (out) {
+            return out.toString(StandardCharsets.UTF_8);
+        }
     }
 }
