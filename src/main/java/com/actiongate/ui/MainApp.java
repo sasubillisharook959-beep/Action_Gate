@@ -372,6 +372,7 @@ public final class MainApp extends Application {
         t.getColumns().add(col("Decision", 80, AuditEvent::decision));
         t.getColumns().add(col("Approval", 110, AuditEvent::approvalStatus));
         t.getColumns().add(col("Biometric", 150, AuditEvent::biometricResult));
+        t.getColumns().add(auditDetailsColumn());
         t.getColumns().add(col("Rules", 200, AuditEvent::matchedRules));
         t.getColumns().add(col("Command", 400, e -> e.command().replace('\n', ' ')));
         t.getColumns().add(descriptionColumn(AuditEvent::command));
@@ -400,6 +401,154 @@ public final class MainApp extends Application {
         VBox.setVgrow(t, Priority.ALWAYS);
         b.setPadding(new Insets(16));
         return b;
+    }
+
+
+
+    /**
+     * Adds a button to each audit row so the complete persisted event can be inspected.
+     */
+    private TableColumn<AuditEvent, Void> auditDetailsColumn() {
+        TableColumn<AuditEvent, Void> column = new TableColumn<>("Details");
+        column.setPrefWidth(105);
+        column.setMinWidth(100);
+
+        column.setCellFactory(tableColumn -> new TableCell<>() {
+            private final Button view = new Button("View details");
+
+            {
+                view.setOnAction(event -> {
+                    AuditEvent auditEvent = getTableRow() == null
+                            ? null
+                            : getTableRow().getItem();
+
+                    if (auditEvent != null) {
+                        showAuditDetails(auditEvent);
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                setGraphic(empty ? null : view);
+            }
+        });
+
+        return column;
+    }
+
+    /**
+     * Displays every field stored in an audit event, including the complete
+     * biometric result and hash values (rather than the shortened table values).
+     */
+    private void showAuditDetails(AuditEvent event) {
+        Dialog<Void> dialog = new Dialog<>();
+        dialog.setTitle("Audit event details — #" + event.seq());
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+        dialog.getDialogPane().setPrefSize(780, 680);
+
+        if (css != null) {
+            dialog.getDialogPane().getStylesheets().add(css);
+        }
+
+        GridPane details = new GridPane();
+        details.setHgap(14);
+        details.setVgap(9);
+        details.setPadding(new Insets(14));
+
+        ColumnConstraints labelColumn = new ColumnConstraints();
+        labelColumn.setMinWidth(150);
+
+        ColumnConstraints valueColumn = new ColumnConstraints();
+        valueColumn.setHgrow(Priority.ALWAYS);
+        valueColumn.setFillWidth(true);
+
+        details.getColumnConstraints().addAll(labelColumn, valueColumn);
+
+        int row = 0;
+        addAuditDetail(details, "Sequence", String.valueOf(event.seq()), row++);
+        addAuditDetail(details, "Event ID", event.eventId(), row++);
+        addAuditDetail(details, "Timestamp (UTC)", event.timestamp() == null
+                ? null : event.timestamp().toString(), row++);
+        addAuditDetail(details, "Event type", event.eventType(), row++);
+        addAuditDetail(details, "Agent", event.agentId(), row++);
+        addAuditDetail(details, "Risk level", event.riskLevel(), row++);
+        addAuditDetail(details, "Decision", event.decision(), row++);
+        addAuditDetail(details, "Approval", event.approvalStatus(), row++);
+        addAuditDetail(details, "Biometric result", event.biometricResult(), row++);
+        addAuditDetail(details, "Execution result", event.executionResult(), row++);
+        addAuditDetail(details, "Matched rules", event.matchedRules(), row++);
+        addAuditDetail(details, "Working directory", event.workingDir(), row++);
+
+        TextArea commandArea = readOnlyArea(event.command(), 3);
+        details.add(new Label("Full command"), 0, row);
+        details.add(commandArea, 1, row++);
+
+        TextArea previousHashArea = readOnlyArea(event.prevHash(), 2);
+        details.add(new Label("Previous hash"), 0, row);
+        details.add(previousHashArea, 1, row++);
+
+        TextArea hashArea = readOnlyArea(event.hash(), 2);
+        details.add(new Label("Complete hash"), 0, row);
+        details.add(hashArea, 1, row++);
+
+        Button copyCommand = new Button("Copy command");
+        copyCommand.setOnAction(e -> copyToClipboard(event.command()));
+
+        Button copyHash = new Button("Copy complete hash");
+        copyHash.setOnAction(e -> copyToClipboard(event.hash()));
+
+        HBox actions = new HBox(10, copyCommand, copyHash);
+        actions.setAlignment(Pos.CENTER_LEFT);
+        actions.setPadding(new Insets(0, 14, 12, 14));
+
+        VBox content = new VBox(8, details, actions);
+        content.setPadding(new Insets(8));
+        content.getStyleClass().add("dialog-root");
+
+        javafx.scene.control.ScrollPane scrollPane =
+                new javafx.scene.control.ScrollPane(content);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setHbarPolicy(javafx.scene.control.ScrollPane.ScrollBarPolicy.NEVER);
+
+        dialog.getDialogPane().setContent(scrollPane);
+        dialog.setResizable(true);
+        dialog.showAndWait();
+    }
+
+    private static void addAuditDetail(
+            GridPane grid,
+            String name,
+            String value,
+            int row) {
+
+        Label label = new Label(name);
+        label.getStyleClass().add("section");
+
+        Label text = new Label(value == null || value.isBlank() ? "N/A" : value);
+        text.setWrapText(true);
+        text.setMaxWidth(Double.MAX_VALUE);
+
+        grid.add(label, 0, row);
+        grid.add(text, 1, row);
+    }
+
+    private static TextArea readOnlyArea(String value, int rows) {
+        TextArea area = new TextArea(value == null ? "" : value);
+        area.setEditable(false);
+        area.setWrapText(true);
+        area.setPrefRowCount(rows);
+        area.setMaxWidth(Double.MAX_VALUE);
+        area.getStyleClass().add("mono");
+        return area;
+    }
+
+    private static void copyToClipboard(String value) {
+        ClipboardContent clipboardContent = new ClipboardContent();
+        clipboardContent.putString(value == null ? "" : value);
+        Clipboard.getSystemClipboard().setContent(clipboardContent);
     }
 
     // ------------------------------------------------------------------ policy
